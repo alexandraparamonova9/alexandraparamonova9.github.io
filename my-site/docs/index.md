@@ -1,17 +1,39 @@
-# Welcome to MkDocs
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-## Commands
+# Добро пожаловать в моё персональное портфолио.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+---
+## 📚 О портфолио
 
-## Project layout
+Этот сайт создан с использованием генератора статических сайтов **MkDocs** и опубликован на **GitHub Pages**. Здесь вы найдёте:
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- ✅ Отчёты по лабораторным работам
+- ✅ Исходный код проектов
+- ✅ Описание используемых технологий
+- ✅ Выводы и результаты обучения
+
+---
+
+## 🚀 Быстрая навигация
+
+| Раздел | Описание |
+|--------|----------|
+| [**Об авторе**](about.md) | Информация обо мне и моих навыках |
+| [**Лабораторная работа №1**](labs/lab1.md) | Создание статического сайта |
+| [**Лабораторная работа №2**](labs/lab2.md) | [Название темы работы] |
+| [**Лабораторная работа №3**](labs/lab3.md) | [Название темы работы] |
+---
+
+## 🛠️ Используемые технологии
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <span style="background: #f0f0f0; padding: 5px 10px; border-radius: 5px;">🐍 Python</span>
+    <span style="background: #f0f0f0; padding: 5px 10px; border-radius: 5px;">📝 Markdown</span>
+    <span style="background: #f0f0f0; padding: 5px 10px; border-radius: 5px;">⚡ MkDocs</span>
+    <span style="background: #f0f0f0; padding: 5px 10px; border-radius: 5px;">🐙 Git/GitHub</span>
+    <span style="background: #f0f0f0; padding: 5px 10px; border-radius: 5px;">🎨 HTML/CSS</span>
+</div>
+
+---
+
+*Сайт постоянно обновляется по мере выполнения новых работ*
