@@ -1,58 +1,54 @@
-# 👋 Добро пожаловать в моё портфолио!
+<!-- Главная страница с эстетичным оформлением -->
 
-![Welcome](https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80){: style="width:100%; border-radius:8px; margin-bottom:20px;"}
+<div align="center" style="margin-top: 20px; margin-bottom: 40px;">
+  
+# ✦ Александра Парамонова ✦
+### *студентка группы P3122*
 
-## О сайте
+<div style="max-width: 600px; margin: 0 auto; color: #666; font-size: 1.1em;">
+Веб-разработка · UI/UX · Креативное программирование
+</div>
 
-Этот сайт создан в рамках лабораторной работы по курсу "Создание и развертывание статического сайта на базе MkDocs". Здесь представлены мои лабораторные работы по веб-разработке.
+---
 
-## 🎯 Цель работы
+<div class="grid cards" style="margin-top: 40px;" markdown>
 
-Освоить процесс создания статического сайта с использованием генератора документации MkDocs и развернуть его на GitHub Pages.
-
-## 📚 Структура портфолио
-
-<div class="grid cards" markdown>
-
--   :material-account-circle:{ .lg .middle } __Об авторе__
-
+-   :material-flower-tulip:{ .lg .middle .purple } __Эстетичный дизайн__
+    
     ---
+    
+    Минималистичный и современный подход к оформлению, внимание к деталям и типографике
 
-    Узнайте больше обо мне, моих интересах и навыках
-
-    [:octicons-arrow-right-24: Перейти](about.md)
-
--   :material-flask:{ .lg .middle } __Лабораторные работы__
-
+-   :material-code-tags:{ .lg .middle .purple } __Чистый код__
+    
     ---
+    
+    Структурированные и документированные решения, best practices и современные стандарты
 
-    Здесь представлены все выполненные лабораторные работы
-
-    [:octicons-arrow-right-24: Смотреть](labs/lab1.md)
-
--   :material-github:{ .lg .middle } __Исходный код__
-
+-   :material-rocket-launch:{ .lg .middle .purple } __Актуальные технологии__
+    
     ---
-
-    Весь код проекта доступен на GitHub
-
-    [:octicons-arrow-right-24: Репозиторий](https://github.com/alexandraparamonova9/alexandraparamonova9.github.io)
-
--   :material-web:{ .lg .middle } __Технологии__
-
-    ---
-
-    MkDocs, Material Theme, GitHub Pages, Markdown
-
-    [:octicons-arrow-right-24: Документация](https://www.mkdocs.org/)
+    
+    Использование современных инструментов и подходов в веб-разработке
 
 </div>
 
-## 📊 Прогресс выполнения
+</div>
 
-| Лабораторная работа |   Статус    | Дата сдачи |
-|:--------------------|:-----------:|:-----------|
-| Лабораторная работа №1 | ✅ Выполнено | Март 2026  |
-| Лабораторная работа №2 | ✅ Выполнено | Март 2026  |
-| Лабораторная работа №3 | В процессе  | Март 2026  |
+## ✦ Добро пожаловать в моё портфолио
 
+<div style="display: flex; align-items: center; gap: 30px; margin: 40px 0;">
+<div style="flex: 1;">
+
+Здесь собраны лабораторные работы, выполненные в рамках курса веб-разработки. Каждая работа — это маленькое исследование, результат которого представлен в виде интерактивного или статического веб-приложения.
+
+</div>
+<div style="flex: 1; text-align: center;">
+
+```mermaid
+graph LR
+    A[HTML/CSS] --> D{Веб-проекты}
+    B[JavaScript] --> D
+    C[Python] --> D
+    D --> E[MkDocs]
+    D --> F[GitHub Pages]

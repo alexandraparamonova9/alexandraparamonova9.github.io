@@ -1,62 +1,149 @@
-site_name: Портфолио P3122
-site_description: Портфолио лабораторных работ студентки группы P3122
+# Настройки сайта
+site_name: Александра Парамонова · P3122
+site_description: Портфолио лабораторных работ по веб-разработке
 site_author: Александра Парамонова
 site_url: https://alexandraparamonova9.github.io
 
-# Настройки темы
+# Репозиторий
+repo_name: alexandraparamonova9/alexandraparamonova9.github.io
+repo_url: https://github.com/alexandraparamonova9/alexandraparamonova9.github.io
+
+# Тема Material с кастомизацией
 theme:
   name: material
   language: ru
+  icon:
+    logo: material/code-brackets
+    repo: fontawesome/brands/github
+
+  # Палитра цветов
+  palette:
+    # Светлая тема
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/weather-sunny
+        name: Переключить на тёмную тему
+
+    # Тёмная тема
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/weather-night
+        name: Переключить на светлую тему
+
+  # Шрифты
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+  # Фичи
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
+    - navigation.expand
     - navigation.top
+    - navigation.footer
     - search.suggest
     - search.highlight
     - content.code.annotate
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-night
-        name: Переключить на тёмную тему
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-sunny
-        name: Переключить на светлую тему
-  font:
-    text: Roboto
-    code: Fira Code
+    - content.code.copy
+    - content.tabs.link
+    - announce.dismiss
+
+# Дополнительные стили и скрипты
+extra_css:
+  - https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap
+  - https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap
+
+extra_javascript:
+  - https://unpkg.com/feather-icons
 
 # Расширения Markdown
 markdown_extensions:
+  # Адмонишены (блоки с заметками)
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+
+  # Подсветка кода
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  # Табы
   - pymdownx.tabbed:
       alternate_style: true
-  - tables
-  - toc:
-      permalink: true
-  - footnotes
+
+  # Эмодзи
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+  # Кнопки и иконки
   - attr_list
   - md_in_html
 
-# Навигация по сайту
+  # Оглавление
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+  # Сноски
+  - footnotes
+
+  # Таблицы
+  - tables
+
+  # Списки заданий
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+
+# Навигация
 nav:
   - Главная: index.md
-  - Об авторе: about.md
+  - Обо мне: about.md
   - Лабораторные работы:
-    - Лабораторная работа №1: labs/lab1.md
-    - Лабораторная работа №2: labs/lab2.md
-    - Лабораторная работа №3: labs/lab3.md
+    - lab1/index.md
+    - lab2/index.md
+    - lab3/index.md
+
+# Плагины
+plugins:
+  - search:
+      lang: ru
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: date
+  - minify:
+      minify_html: true
 
 # Дополнительные настройки
-copyright: Copyright &copy; 2024 Александра Парамонова
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/alexandraparamonova9
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/alexandra_dev
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/alexandra-paramonova
+    - icon: fontawesome/solid/envelope
+      link: mailto:alexandra@example.com
+
+  generator: false
+
+# Копирайт
+copyright: Copyright &copy; 2026 Александра Парамонова
