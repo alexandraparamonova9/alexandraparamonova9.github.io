@@ -1,12 +1,62 @@
-site_name: Портфолио лабораторных работ
+site_name: Портфолио P3122
+site_description: Портфолио лабораторных работ студентки группы P3122
+site_author: Александра Парамонова
+site_url: https://alexandraparamonova9.github.io
 
+# Настройки темы
 theme:
   name: material
+  language: ru
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Переключить на тёмную тему
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Переключить на светлую тему
+  font:
+    text: Roboto
+    code: Fira Code
 
+# Расширения Markdown
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+  - footnotes
+  - attr_list
+  - md_in_html
+
+# Навигация по сайту
 nav:
   - Главная: index.md
   - Об авторе: about.md
   - Лабораторные работы:
-      - Лабораторная 1: labs/lab1.md
-      - Лабораторная 2: labs/lab2.md
-      - Лабораторная 3: labs/lab3.md
+    - Лабораторная работа №1: labs/lab1.md
+    - Лабораторная работа №2: labs/lab2.md
+    - Лабораторная работа №3: labs/lab3.md
+
+# Дополнительные настройки
+copyright: Copyright &copy; 2024 Александра Парамонова
