@@ -1,8 +1,6 @@
-<!-- Страница "Обо мне" с эстетичным оформлением -->
-
 <div align="center">
 
-# ✦ Обо мне ✦
+# ✦ Обо мне 
 
 <div style="width: 220px; height: 220px; border-radius: 50%; overflow: hidden; margin: 30px auto; border: 4px solid #7B1FA2; box-shadow: 0 10px 30px rgba(123, 31, 162, 0.3);">
   <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80" 
@@ -12,26 +10,39 @@
 
 ## Александра Парамонова
 
-*студентка группы P3122*
+студентка группы P3122
 
 </div>
 
 ---
 
-<div style="flex: 1; background: #f5f5f5; padding: 20px; border-radius: 10px;">
+<div style="background: linear-gradient(135deg, #f8f0fa, #f3e5f5); padding: 25px; border-radius: 20px; margin: 20px 0; box-shadow: 0 8px 20px rgba(123, 31, 162, 0.15); border: 1px solid rgba(123, 31, 162, 0.2);">
 
-### 🎓 Образование
+# ✦ 🎓 Образование
 
-- **Город:** Санкт-Петербург
-- **Университет:** ИТМО
-- **Направление:** Нейротехнологии и программирование 2025
-- **Курс:** 1
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px;">
+
+<div style="background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+  <span style="color: #7B1FA2; font-weight: 600;">📍 Город:</span> Санкт-Петербург
+</div>
+
+<div style="background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+  <span style="color: #7B1FA2; font-weight: 600;">🏛️ Университет:</span> ИТМО
+</div>
+
+<div style="background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); grid-column: span 2;">
+  <span style="color: #7B1FA2; font-weight: 600;">📚 Направление:</span> Нейротехнологии и программирование 2025
+</div>
+
+<div style="background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); grid-column: span 2;">
+  <span style="color: #7B1FA2; font-weight: 600;">📖 Курс:</span> 1
+</div>
 
 </div>
 
+</div>
 
 ---
-
 
 ## ✦ Контакты
 

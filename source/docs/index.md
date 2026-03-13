@@ -1,54 +1,75 @@
-<!-- Главная страница с эстетичным оформлением -->
+<!-- Главная страница -->
 
 <div align="center" style="margin-top: 20px; margin-bottom: 40px;">
   
 # ✦ Александра Парамонова ✦
 ### *студентка группы P3122*
 
-<div style="max-width: 600px; margin: 0 auto; color: #666; font-size: 1.1em;">
-Веб-разработка · UI/UX · Креативное программирование
+
+</div>
+
+## ✦ Добро пожаловать в моё портфолио!
+
+<div style="background: #f5f5f5; padding: 30px; border-radius: 15px; margin: 30px 0;">
+
+Здесь собраны лабораторные работы, выполненные в рамках нашего курса.
+
 </div>
 
 ---
 
-<div class="grid cards" style="margin-top: 40px;" markdown>
+## ✦ Прогресс выполнения
 
--   :material-flower-tulip:{ .lg .middle .purple } __Эстетичный дизайн__
-    
-    ---
-    
-    Минималистичный и современный подход к оформлению, внимание к деталям и типографике
+<div style="margin: 30px 0; overflow-x: auto;">
 
--   :material-code-tags:{ .lg .middle .purple } __Чистый код__
-    
-    ---
-    
-    Структурированные и документированные решения, best practices и современные стандарты
-
--   :material-rocket-launch:{ .lg .middle .purple } __Актуальные технологии__
-    
-    ---
-    
-    Использование современных инструментов и подходов в веб-разработке
+| Лабораторная работа |   Статус    | Дата       |
+|:--------------------|:-----------:|:-----------|
+| Лабораторная работа №1 | ✅ Выполнено | март 2026  |
+| Лабораторная работа №2 | ✅ Выполнено | март 2026  |
+| Лабораторная работа №3 | В процессе  | март 2026  |
 
 </div>
 
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+  th {
+    background: #7B1FA2;
+    color: white;
+    padding: 12px;
+    font-weight: 500;
+  }
+  td {
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  tr:hover {
+    background: #f8f0fa;
+  }
+</style>
+
+---
+
+## ✦ Быстрая навигация
+
+<div style="display: flex; gap: 30px; justify-content: center; margin: 40px 0; flex-wrap: wrap;">
+
+<div style="text-align: center; padding: 20px; min-width: 150px;">
+  <a href="about.md" style="color: #7B1FA2; text-decoration: none; font-weight: 500;">👤 Обо мне</a>
 </div>
 
-## ✦ Добро пожаловать в моё портфолио
+<div style="text-align: center; padding: 20px; min-width: 150px;">
+  <a href="labs/lab1.md" style="color: #7B1FA2; text-decoration: none; font-weight: 500;">📚 Лабораторные работы</a>
+</div>
 
-<div style="display: flex; align-items: center; gap: 30px; margin: 40px 0;">
-<div style="flex: 1;">
-
-Здесь собраны лабораторные работы, выполненные в рамках курса веб-разработки. Каждая работа — это маленькое исследование, результат которого представлен в виде интерактивного или статического веб-приложения.
+<div style="text-align: center; padding: 20px; min-width: 150px;">
+  <a href="https://github.com/alexandraparamonova9" style="color: #7B1FA2; text-decoration: none; font-weight: 500;">🐙 GitHub</a>
+</div>
 
 </div>
-<div style="flex: 1; text-align: center;">
-
-```mermaid
-graph LR
-    A[HTML/CSS] --> D{Веб-проекты}
-    B[JavaScript] --> D
-    C[Python] --> D
-    D --> E[MkDocs]
-    D --> F[GitHub Pages]
