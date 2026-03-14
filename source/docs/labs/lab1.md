@@ -1,9 +1,9 @@
-# Лабораторная работа №1
-## Создание и развертывание статического сайта на базе MkDocs
+<h1>Лабораторная работа №1</h1>
+<h2>Создание и развертывание статического сайта на базе MkDocs</h2>
 
 ---
 
-### 🎯 Цель работы
+<h3>🎯 Цель работы</h3>
 
 <div style="background: #f8f0fa; padding: 25px; border-radius: 15px; margin: 20px 0; border: 1px solid #e1bee7; box-shadow: 0 4px 10px rgba(123, 31, 162, 0.1);">
 
@@ -13,38 +13,37 @@
 
 ---
 
-### 📝 Задание
+<h3>📝 Задание</h3>
 
 <div style="background: white; padding: 25px; border-radius: 15px; margin: 20px 0; border: 1px solid #e1bee7; box-shadow: 0 4px 10px rgba(123, 31, 162, 0.1);">
 
-1. Создать публичный репозиторий на GitHub
-2. Настроить GitHub Pages для публикации из каталога `/docs`
-3. Установить и настроить MkDocs
-4. Создать структуру сайта с несколькими страницами
-5. Настроить тему оформления
+1. Создать публичный репозиторий на GitHub<br>
+2. Настроить GitHub Pages для публикации из каталога `/docs`<br>
+3. Установить и настроить MkDocs<br>
+4. Создать структуру сайта с несколькими страницами<br>
+5. Настроить тему оформления<br>
 6. Опубликовать сайт на GitHub Pages
 
 </div>
 
 ---
 
-### 💻 Код реализации
+<h3>💻 Код реализации</h3>
 
 <div style="background: #f8f0fa; padding: 25px; border-radius: 15px; margin: 20px 0; border: 1px solid #e1bee7; box-shadow: 0 4px 10px rgba(123, 31, 162, 0.1);">
+
+<pre style="margin: 0; font-family: monospace;">
 mkdocs new source
-
 cd source
-
 mkdocs serve
-
 mkdocs build -d ../docs
-
+</pre>
 
 </div>
 
 ---
 
-### 📌 Вывод
+<h3>📌 Вывод</h3>
 
 <div style="background: #f8f0fa; padding: 25px; border-radius: 15px; margin: 20px 0; border: 1px solid #e1bee7; box-shadow: 0 4px 10px rgba(123, 31, 162, 0.1);">
 

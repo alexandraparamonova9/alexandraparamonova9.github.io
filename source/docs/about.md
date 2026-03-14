@@ -1,6 +1,8 @@
+
+
 <div align="center">
 
-# ✦ Обо мне 
+<h1>✦ Обо мне ✦</h1>
 
 <div style="width: 220px; height: 220px; border-radius: 50%; overflow: hidden; margin: 30px auto; border: 4px solid #7B1FA2; box-shadow: 0 10px 30px rgba(123, 31, 162, 0.3);">
   <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80" 
@@ -8,9 +10,9 @@
        style="width: 100%; height: 100%; object-fit: cover;">
 </div>
 
-## Александра Парамонова
+<h2>Александра Парамонова</h2>
 
-студентка группы P3122
+<p>студентка группы P3122</p>
 
 </div>
 
@@ -18,24 +20,28 @@
 
 <div style="background: linear-gradient(135deg, #f8f0fa, #f3e5f5); padding: 25px; border-radius: 20px; margin: 20px 0; box-shadow: 0 8px 20px rgba(123, 31, 162, 0.15); border: 1px solid rgba(123, 31, 162, 0.2);">
 
-# ✦ 🎓 Образование
+<h2>✦ 🎓 Образование ✦</h2>
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px;">
+<div style="display: flex; flex-direction: column; gap: 12px; margin-top: 20px;">
 
-<div style="background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-  <span style="color: #7B1FA2; font-weight: 600;">📍 Город:</span> Санкт-Петербург
+<div style="display: flex; align-items: baseline; padding: 12px 15px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+  <span style="color: #7B1FA2; font-weight: 600; min-width: 120px;">📍 Город:</span>
+  <span style="color: #333;">Санкт-Петербург</span>
 </div>
 
-<div style="background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-  <span style="color: #7B1FA2; font-weight: 600;">🏛️ Университет:</span> ИТМО
+<div style="display: flex; align-items: baseline; padding: 12px 15px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+  <span style="color: #7B1FA2; font-weight: 600; min-width: 120px;">🏛️ Университет:</span>
+  <span style="color: #333;">ИТМО</span>
 </div>
 
-<div style="background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); grid-column: span 2;">
-  <span style="color: #7B1FA2; font-weight: 600;">📚 Направление:</span> Нейротехнологии и программирование 2025
+<div style="display: flex; align-items: baseline; padding: 12px 15px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+  <span style="color: #7B1FA2; font-weight: 600; min-width: 120px;">📚 Направление:</span>
+  <span style="color: #333;">Нейротехнологии и программирование 2025</span>
 </div>
 
-<div style="background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); grid-column: span 2;">
-  <span style="color: #7B1FA2; font-weight: 600;">📖 Курс:</span> 1
+<div style="display: flex; align-items: baseline; padding: 12px 15px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+  <span style="color: #7B1FA2; font-weight: 600; min-width: 120px;">📖 Курс:</span>
+  <span style="color: #333;">1</span>
 </div>
 
 </div>
@@ -44,7 +50,7 @@
 
 ---
 
-## ✦ Контакты
+<h2>✦ Контакты ✦</h2>
 
 <div align="center" style="margin: 40px 0;">
 
@@ -74,7 +80,7 @@
 
 ---
 
-## ✦ Свяжитесь со мной
+<h2>✦ Свяжитесь со мной ✦</h2>
 
 <div align="center" style="margin: 30px 0;">
 

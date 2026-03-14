@@ -117,9 +117,9 @@ nav:
   - Главная: index.md
   - Обо мне: about.md
   - Лабораторные работы:
-    - labs/lab1.md
-    - labs/lab2.md
-    - labs/lab3.md
+      - Лабораторная работа №1: labs/lab1.md
+      - Лабораторная работа №2: labs/lab2.md
+      - Лабораторная работа №3: labs/lab3.md
 
 # Плагины
 plugins:
