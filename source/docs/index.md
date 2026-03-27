@@ -51,21 +51,3 @@
 </div>
 
 ---
-
-<h2>✦ Быстрая навигация ✦</h2>
-
-<div style="display: flex; gap: 30px; justify-content: center; margin: 40px 0; flex-wrap: wrap;">
-
-<div style="text-align: center; padding: 20px; min-width: 150px;">
-  <a href="../about/" style="color: #7B1FA2; text-decoration: none; font-weight: 500; font-size: 1.2em;">👤 Обо мне</a>
-</div>
-
-<div style="text-align: center; padding: 20px; min-width: 150px;">
-  <a href="../labs/lab1/" style="color: #7B1FA2; text-decoration: none; font-weight: 500; font-size: 1.2em;">📚 Лабораторные работы</a>
-</div>
-
-<div style="text-align: center; padding: 20px; min-width: 150px;">
-  <a href="https://github.com/alexandraparamonova9" style="color: #7B1FA2; text-decoration: none; font-weight: 500; font-size: 1.2em;">🐙 GitHub</a>
-</div>
-
-</div>
