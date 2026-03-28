@@ -2,7 +2,7 @@
 <h2>Основы NumPy: массивы и векторные операции</h2>
 
 ---
-
+Репозиторий с исходным кодом - https://github.com/alexandraparamonova9/Python2sem
 <h3>🎯 Цель работы</h3>
 
 <div style="background: #f8f0fa; padding: 25px; border-radius: 15px; margin: 20px 0; border: 1px solid #e1bee7; box-shadow: 0 4px 10px rgba(123, 31, 162, 0.1);">
