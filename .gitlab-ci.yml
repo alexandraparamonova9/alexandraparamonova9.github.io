@@ -1,0 +1,22 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: python:3.11
+  script:
+    - pip install mkdocs mkdocs-material
+    - cd source
+    - mkdocs build -d ../public
+  artifacts:
+    paths:
+      - public
+
+pages:
+  stage: deploy
+  script:
+    - echo "Deploying site"
+  artifacts:
+    paths:
+      - public
