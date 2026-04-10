@@ -3,7 +3,7 @@
 
 ---
 
-Репозиторий с исходным кодом - https://github.com/alexandraparamonova9/alexandraparamonova9.github.io
+https://sourcecraft.dev/mailparamonova/portfolio
 
 <h3>🎯 Цель работы</h3>
 
@@ -36,92 +36,97 @@
 
 <div style="background: #f8f0fa; padding: 25px; border-radius: 15px; margin: 20px 0; border: 1px solid #e1bee7; box-shadow: 0 4px 10px rgba(123, 31, 162, 0.1);">
 
-<h4>📁 Структура репозитория</h4>
 
-<pre style="margin: 0; font-family: monospace; background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 10px; overflow-x: auto;">
-alexandraparamonova9.github.io/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # GitHub Actions
-├── .sourcecraft/
-│   ├── ci.yaml                 # SourceCraft CI конфигурация
-│   └── sites.yaml              # SourceCraft Sites конфигурация
-├── docs/                       # Исходные .md файлы
-├── mkdocs.yml                  # Конфигурация MkDocs
-└── requirements.txt            # Зависимости Python
-</pre>
-
-<h4>⚙️ GitHub Actions (deploy.yml)</h4>
+<h4>⚙️ GitHub Actions (deploy-mkdocs.yml)</h4>
 
 <pre style="margin: 0; font-family: monospace; background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 10px; overflow-x: auto;">
 name: Deploy MkDocs to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
+    environment:
+      name: github-pages    # ← Это обязательно добавили!
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-          
-      - name: Install dependencies
+          python-version: '3.x'
+
+      - name: Install MkDocs and plugins
         run: |
-          pip install mkdocs mkdocs-material
-        
-      - name: Build site
-        run: mkdocs build --clean
-        
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+          python -m pip install --upgrade pip
+          pip install \
+            mkdocs \
+            mkdocs-material \
+            pymdown-extensions \
+            mkdocs-git-revision-date-localized-plugin \
+            mkdocs-minify-plugin
+
+      - name: Build MkDocs site
+        working-directory: ./source
+        run: mkdocs build -d ../docs --clean
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: gh-pages
+          path: './docs'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 </pre>
 
 <h4>🚀 SourceCraft CI (.sourcecraft/ci.yaml)</h4>
 
 <pre style="margin: 0; font-family: monospace; background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 10px; overflow-x: auto;">
-version: 1
-jobs:
-  - name: build-site
+on:
+  push:
+    branches: [ main ]
+
+workflows:
+  - name: Build MkDocs site for SourceCraft
     steps:
-      - name: install-python
-        uses: script
-        script: |
-          apt-get update && apt-get install -y python3 python3-pip
-      - name: install-mkdocs
-        uses: script
-        script: |
-          pip3 install mkdocs mkdocs-material
-      - name: build-docs
-        uses: script
-        script: |
-          mkdocs build --clean -d site
-      - name: publish
-        uses: site-publish
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          source: site
-          target: /
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install mkdocs mkdocs-material pymdown-extensions
+
+      - name: Build site
+        working-directory: ./source
+        run: mkdocs build -d ../docs
 </pre>
 
 <h4>🌐 SourceCraft Sites (.sourcecraft/sites.yaml)</h4>
 
 <pre style="margin: 0; font-family: monospace; background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 10px; overflow-x: auto;">
 site:
-  root: site
-  ref: release
+  root: "docs"
+  ref: "main"
 </pre>
 
 <h4>🔧 Добавление удаленного репозитория SourceCraft</h4>
