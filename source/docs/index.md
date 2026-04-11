@@ -42,8 +42,18 @@
     </tr>
     <tr>
       <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">Лабораторная работа №3</td>
+      <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">✅ Выполнено</td>
+      <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">апрель 2026</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">Лабораторная работа №4</td>
       <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">🕐 В процессе</td>
-      <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">март 2026</td>
+      <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">апрель 2026</td>
+    </tr>
+     <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">Лабораторная работа №5</td>
+      <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">🕐 В процессе</td>
+      <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">апрель 2026</td>
     </tr>
   </tbody>
 </table>
