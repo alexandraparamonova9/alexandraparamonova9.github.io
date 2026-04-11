@@ -90,21 +90,24 @@
 
 <div style="max-width: 500px; margin: 0 auto; padding: 30px; background: #f5f5f5; border-radius: 10px;">
 
-<form>
+<form action="https://formsubmit.co/mailParamonova@yandex.ru" method="POST">
   <div style="margin-bottom: 20px;">
     <label for="name" style="display: block; margin-bottom: 5px; color: #333;">Имя</label>
-    <input type="text" id="name" name="name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" placeholder="Введите ваше имя">
+    <input type="text" id="name" name="name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" placeholder="Введите ваше имя" required>
   </div>
   
   <div style="margin-bottom: 20px;">
     <label for="email" style="display: block; margin-bottom: 5px; color: #333;">Email</label>
-    <input type="email" id="email" name="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" placeholder="example@email.com">
+    <input type="email" id="email" name="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" placeholder="example@email.com" required>
   </div>
   
   <div style="margin-bottom: 20px;">
     <label for="message" style="display: block; margin-bottom: 5px; color: #333;">Сообщение</label>
-    <textarea id="message" name="message" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" placeholder="Ваше сообщение..."></textarea>
+    <textarea id="message" name="message" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" placeholder="Ваше сообщение..." required></textarea>
   </div>
+  
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
   
   <button type="submit" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #7B1FA2 0%, #9C27B0 100%); color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">Отправить сообщение</button>
 </form>
