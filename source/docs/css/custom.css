@@ -1,38 +1,130 @@
-/* Базовые стили для дизайна */
-body {
-  background: #0a0a0f;
-  color: #ededee;
+/* ============================================
+   Premium Custom Colors — Alexandra Paramonova
+   ============================================ */
+
+/* Цветовая палитра */
+:root {
+  /* Основные цвета */
+  --md-primary-fg-color: #5C1E1F;
+  --md-primary-fg-color--light: #7a2e2f;
+  --md-primary-fg-color--dark: #3f1415;
+  --md-primary-bg-color: #EFEAD4;
+
+  /* Акцент */
+  --md-accent-fg-color: #677178;
+  --md-accent-fg-color--light: #8d979c;
+  --md-accent-fg-color--dark: #4a5258;
+
+  /* Фон */
+  --md-default-bg-color: #EFEAD4;
+  --md-default-bg-color--light: #f5f2e3;
+  --md-default-bg-color--lighter: #faf8ef;
+  --md-default-bg-color--lightest: #fdfcf5;
+
+  /* Текст */
+  --md-default-fg-color: #1E1E1E;
+  --md-default-fg-color--light: #5A5A5A;
+  --md-default-fg-color--lighter: #8A8A8A;
+  --md-default-fg-color--lightest: #B0B0B0;
+
+  /* Тени */
+  --md-shadow-z1: 0 4px 12px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+  --md-shadow-z2: 0 8px 24px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.03);
 }
 
-.gradient-title {
-  background: linear-gradient(135deg, #00c6ff, #7c3aed, #ff00cc);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Тёмная тема */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #5C1E1F;
+  --md-primary-bg-color: #1E1E1E;
+  --md-default-bg-color: #1a1a1a;
+  --md-default-fg-color: #EFEAD4;
+  --md-default-fg-color--light: #c5c0ae;
 }
 
-.glass-card {
-  background: rgba(20, 20, 35, 0.6);
+/* Навбар */
+.md-header {
+  background: rgba(239, 234, 212, 0.85);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 198, 255, 0.2);
-  border-radius: 24px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
+  box-shadow: var(--md-shadow-z1);
 }
 
-.glass-card:hover {
-  border-color: rgba(0, 198, 255, 0.5);
-  transform: translateY(-3px);
+[data-md-color-scheme="slate"] .md-header {
+  background: rgba(30, 30, 30, 0.85);
 }
 
-.btn-glow {
-  background: linear-gradient(90deg, #00c6ff, #7c3aed);
-  border-radius: 3rem;
-  padding: 0.8rem 2rem;
-  transition: all 0.3s ease;
+/* Кнопки */
+.md-button {
+  border-radius: 40px;
+  transition: all 0.25s ease;
 }
 
-.btn-glow:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(0, 198, 255, 0.4);
+.md-button--primary {
+  background-color: #5C1E1F;
+  border-color: #5C1E1F;
+}
+
+.md-button--primary:hover {
+  background-color: #3f1415;
+  transform: translateY(-2px);
+}
+
+/* Карточки и контент */
+.md-typeset a {
+  color: #5C1E1F;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.md-typeset a:hover {
+  color: #3f1415;
+}
+
+/* Блоки кода */
+.md-typeset code {
+  background: rgba(103, 113, 120, 0.08);
+  border-radius: 8px;
+  padding: 0.2em 0.4em;
+}
+
+.md-typeset pre > code {
+  background: #1E1E1E;
+  border-radius: 16px;
+  padding: 1.2em;
+}
+
+/* Таблицы */
+.md-typeset table:not([class]) {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--md-shadow-z1);
+}
+
+.md-typeset table:not([class]) th {
+  background-color: #5C1E1F;
+  color: #EFEAD4;
+}
+
+/* Адмонишены */
+.md-typeset .admonition {
+  border-radius: 20px;
+  border-left-width: 4px;
+}
+
+/* Скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e2ddc9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #677178;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5C1E1F;
 }

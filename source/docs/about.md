@@ -1,279 +1,517 @@
----
-title: Обо мне
-hide:
-  - navigation
-  - toc
----
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Александра Парамонова — Обо мне</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-  .premium-card {
-    background: rgba(20, 20, 35, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 198, 255, 0.2);
-    border-radius: 24px;
-    transition: all 0.3s ease;
-  }
-  
-  .premium-card:hover {
-    border-color: rgba(0, 198, 255, 0.5);
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 198, 255, 0.1);
-  }
-  
-  .avatar-wrapper {
-    position: relative;
-    width: 220px;
-    height: 220px;
-    margin: 0 auto;
-  }
-  
-  .avatar-wrapper::before {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    background: linear-gradient(135deg, #00c6ff, #7c3aed, #ff00cc);
-    border-radius: 50%;
-    animation: rotate 3s linear infinite;
-  }
-  
-  @keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  .avatar-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    z-index: 1;
-  }
-  
-  .info-row {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding: 1rem 1.2rem;
-    background: rgba(0, 198, 255, 0.05);
-    border-radius: 16px;
-    transition: all 0.3s ease;
-  }
-  
-  .info-row:hover {
-    background: rgba(0, 198, 255, 0.1);
-    transform: translateX(5px);
-  }
-  
-  .contact-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1.5rem;
-    background: rgba(20, 20, 35, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 198, 255, 0.2);
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-  }
-  
-  .contact-icon:hover {
-    transform: translateY(-5px);
-    border-color: #00c6ff;
-    box-shadow: 0 10px 30px rgba(0, 198, 255, 0.2);
-  }
-  
-  .contact-icon svg {
-    stroke: #00c6ff;
-    transition: all 0.3s ease;
-  }
-  
-  .contact-icon:hover svg {
-    stroke: #7c3aed;
-    transform: scale(1.1);
-  }
-  
-  .form-input {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(10, 10, 15, 0.8);
-    border: 1px solid rgba(0, 198, 255, 0.3);
-    border-radius: 16px;
-    color: white;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .form-input:focus {
-    outline: none;
-    border-color: #00c6ff;
-    box-shadow: 0 0 15px rgba(0, 198, 255, 0.2);
-  }
-  
-  .form-input::placeholder {
-    color: #64748b;
-  }
-  
-  .btn-submit {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(90deg, #00c6ff, #7c3aed);
-    border: none;
-    border-radius: 16px;
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-submit:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 25px rgba(0, 198, 255, 0.4);
-  }
-  
-  .gradient-text {
-    background: linear-gradient(135deg, #00c6ff, #7c3aed);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-</style>
+        body {
+            background-color: #EFEAD4;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+            color: #1E1E1E;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
 
-<!-- ЗАГОЛОВОК -->
-<div align="center" style="margin-bottom: 3rem;">
-  <h1 style="font-size: clamp(2rem, 6vw, 3rem); font-weight: 700;">
-    <span class="gradient-text">✦ Обо мне ✦</span>
-  </h1>
-</div>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2ddc9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #677178;
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5C1E1F;
+        }
 
-<!-- АВАТАР -->
-<div class="avatar-wrapper">
-  <div class="avatar-inner">
-    <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80" 
-         alt="Александра Парамонова" 
-         style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-</div>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
 
-<div align="center" style="margin: 1.5rem 0;">
-  <h2 style="font-size: 1.8rem; font-weight: 600; color: white;">Александра Парамонова</h2>
-  <p style="color: #00c6ff; font-size: 1.1rem; margin-top: 0.5rem;">студентка группы P3122</p>
-</div>
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
----
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
 
-<!-- ОБРАЗОВАНИЕ -->
-<div class="premium-card" style="padding: 2rem; margin: 2rem 0;">
-  
-  <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
-    <span>🎓</span> <span class="gradient-text">Образование</span>
-  </h2>
-  
-  <div style="display: flex; flex-direction: column; gap: 12px;">
-    
-    <div class="info-row">
-      <span style="color: #00c6ff; font-weight: 600; min-width: 120px;">📍 Город:</span>
-      <span style="color: #cbd5e1;">Санкт-Петербург</span>
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            background: rgba(239, 234, 212, 0.75);
+            border-bottom: 1px solid rgba(103, 113, 120, 0.15);
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: -0.01em;
+            color: #5C1E1F;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .nav-logo:hover {
+            opacity: 0.75;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1E1E1E;
+            cursor: pointer;
+            padding: 8px 0;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #5C1E1F;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #5C1E1F;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .avatar {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 30px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(92, 30, 31, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 50px -16px rgba(92, 30, 31, 0.25);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1E1E1E;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: #5C1E1F;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #677178;
+            font-weight: 400;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: rgba(239, 234, 212, 0.6);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid rgba(103, 113, 120, 0.2);
+            box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 40px -16px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 28px;
+            color: #1E1E1E;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '✦';
+            color: #5C1E1F;
+            font-size: 1.8rem;
+        }
+
+        /* Info grid */
+        .info-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: baseline;
+            padding: 14px 20px;
+            background: rgba(239, 234, 212, 0.9);
+            border-radius: 18px;
+            border: 1px solid rgba(103, 113, 120, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .info-row:hover {
+            border-color: rgba(92, 30, 31, 0.2);
+            background: #EFEAD4;
+        }
+
+        .info-label {
+            min-width: 140px;
+            font-weight: 600;
+            color: #5C1E1F;
+        }
+
+        .info-value {
+            color: #2C2C2C;
+        }
+
+        /* Contacts grid */
+        .contacts-grid {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 24px 32px;
+            background: rgba(239, 234, 212, 0.7);
+            border-radius: 24px;
+            border: 1px solid rgba(103, 113, 120, 0.15);
+            transition: all 0.3s ease;
+            min-width: 160px;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(92, 30, 31, 0.3);
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-card svg {
+            stroke: #5C1E1F;
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            margin-top: 8px;
+        }
+
+        .contact-card a {
+            color: #1E1E1E;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .contact-card a:hover {
+            color: #5C1E1F;
+        }
+
+        /* Form */
+        .form-container {
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(239, 234, 212, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            border: 1px solid rgba(103, 113, 120, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #1E1E1E;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: #EFEAD4;
+            border: 1px solid rgba(103, 113, 120, 0.3);
+            border-radius: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            color: #1E1E1E;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #5C1E1F;
+            box-shadow: 0 0 0 3px rgba(92, 30, 31, 0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: #5C1E1F;
+            color: #EFEAD4;
+            border: none;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-submit:hover {
+            background: #3f1415;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(92, 30, 31, 0.2);
+        }
+
+        .footer {
+            margin-top: 80px;
+            padding: 32px 0;
+            border-top: 1px solid rgba(103, 113, 120, 0.2);
+            text-align: center;
+            color: #677178;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            .glass-card {
+                padding: 24px;
+            }
+            .info-label {
+                min-width: 110px;
+            }
+            .contacts-grid {
+                gap: 24px;
+            }
+            .contact-card {
+                padding: 18px 24px;
+            }
+            .form-container {
+                padding: 28px;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.md" class="nav-logo">Alexandra Paramonova</a>
+        <div class="nav-links">
+            <button class="nav-link" onclick="window.location.href='index.md'">Home</button>
+            <button class="nav-link" onclick="window.location.href='labs/lab1.md'">Labs</button>
+        </div>
     </div>
-    
-    <div class="info-row">
-      <span style="color: #00c6ff; font-weight: 600; min-width: 120px;">🏛️ Университет:</span>
-      <span style="color: #cbd5e1;">ИТМО</span>
+</nav>
+
+<main class="container">
+    <!-- Hero -->
+    <div class="hero animate-on-scroll">
+        <div class="avatar">
+            <img src="https://i.pinimg.com/originals/2c/74/b3/2c74b36ab770ac5d31cdc0946747a0f8.jpg?nii=t" alt="Александра Парамонова">
+        </div>
+        <h1>✦ <span>Александра Парамонова</span> ✦</h1>
+        <div class="hero-sub">студентка группы P3122</div>
     </div>
-    
-    <div class="info-row">
-      <span style="color: #00c6ff; font-weight: 600; min-width: 120px;">📚 Направление:</span>
-      <span style="color: #cbd5e1;">Нейротехнологии и программирование 2025</span>
+
+    <!-- Образование -->
+    <div class="glass-card animate-on-scroll">
+        <h2 class="section-title">🎓 Образование</h2>
+        <div class="info-grid">
+            <div class="info-row">
+                <span class="info-label">📍 Город:</span>
+                <span class="info-value">Санкт-Петербург</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">🏛️ Университет:</span>
+                <span class="info-value">ИТМО</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">📚 Направление:</span>
+                <span class="info-value">Нейротехнологии и программирование 2025</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">📖 Курс:</span>
+                <span class="info-value">1</span>
+            </div>
+        </div>
     </div>
-    
-    <div class="info-row">
-      <span style="color: #00c6ff; font-weight: 600; min-width: 120px;">📖 Курс:</span>
-      <span style="color: #cbd5e1;">1</span>
+
+    <!-- Контакты -->
+    <div class="animate-on-scroll">
+        <h2 class="section-title" style="margin-bottom: 20px;">✦ Контакты ✦</h2>
+        <div class="contacts-grid">
+            <div class="contact-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <p><strong>Email</strong><br>
+                <a href="mailto:mailParamonova@yandex.ru">mailParamonova@yandex.ru</a></p>
+            </div>
+            <div class="contact-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <p><strong>GitHub</strong><br>
+                <a href="https://github.com/alexandraparamonova9">@alexandraparamonova9</a></p>
+            </div>
+            <div class="contact-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <p><strong>Telegram</strong><br>
+                <a href="https://t.me/aleqxji">@aleqxji</a></p>
+            </div>
+        </div>
     </div>
-    
-  </div>
-  
-</div>
 
----
-
-<!-- КОНТАКТЫ -->
-<h2 align="center" style="font-size: 1.5rem; margin: 2rem 0 1.5rem 0;">
-  <span class="gradient-text">✦ Контакты ✦</span>
-</h2>
-
-<div align="center" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 2rem 0;">
-  
-  <a href="mailto:mailParamonova@yandex.ru" class="contact-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-      <polyline points="22,6 12,13 2,6"></polyline>
-    </svg>
-    <p><strong style="color: white;">Email</strong></p>
-    <p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">mailParamonova@yandex.ru</p>
-  </a>
-  
-  <a href="https://github.com/alexandraparamonova9" target="_blank" class="contact-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-    </svg>
-    <p><strong style="color: white;">GitHub</strong></p>
-    <p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">@alexandraparamonova9</p>
-  </a>
-  
-  <a href="https://t.me/aleqxji" target="_blank" class="contact-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="22" y1="2" x2="11" y2="13"></line>
-      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-    </svg>
-    <p><strong style="color: white;">Telegram</strong></p>
-    <p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">@aleqxji</p>
-  </a>
-  
-</div>
-
----
-
-<!-- ФОРМА СВЯЗИ -->
-<h2 align="center" style="font-size: 1.5rem; margin: 2rem 0 1rem 0;">
-  <span class="gradient-text">✦ Свяжитесь со мной ✦</span>
-</h2>
-
-<div align="center" style="margin: 1rem 0 2rem 0;">
-  <p style="color: #94a3b8;">Если у вас есть вопросы, предложения, то заполните форму ниже, и я обязательно отвечу!</p>
-</div>
-
-<div class="premium-card" style="max-width: 550px; margin: 0 auto; padding: 2rem;">
-  
-  <form action="https://formsubmit.co/mailParamonova@yandex.ru" method="POST">
-    
-    <div style="margin-bottom: 1.5rem;">
-      <label for="name" style="display: block; margin-bottom: 0.5rem; color: #cbd5e1; font-weight: 500;">Имя</label>
-      <input type="text" id="name" name="name" class="form-input" placeholder="Введите ваше имя" required>
+    <!-- Форма связи -->
+    <div class="animate-on-scroll" style="margin: 40px 0;">
+        <h2 class="section-title" style="justify-content: center; text-align: center;">✦ Свяжитесь со мной ✦</h2>
+        <div style="text-align: center; margin-bottom: 30px; color: #677178;">
+            Если у вас есть вопросы, предложения, заполните форму ниже, и я обязательно отвечу!
+        </div>
+        <div class="form-container">
+            <form action="https://formsubmit.co/mailParamonova@yandex.ru" method="POST">
+                <div class="form-group">
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Ваше сообщение..." required></textarea>
+                </div>
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <button type="submit" class="btn-submit">Отправить сообщение</button>
+            </form>
+        </div>
     </div>
-    
-    <div style="margin-bottom: 1.5rem;">
-      <label for="email" style="display: block; margin-bottom: 0.5rem; color: #cbd5e1; font-weight: 500;">Email</label>
-      <input type="email" id="email" name="email" class="form-input" placeholder="example@email.com" required>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        Alexandra Paramonova • P3122 • портфолио
     </div>
-    
-    <div style="margin-bottom: 1.5rem;">
-      <label for="message" style="display: block; margin-bottom: 0.5rem; color: #cbd5e1; font-weight: 500;">Сообщение</label>
-      <textarea id="message" name="message" rows="5" class="form-input" placeholder="Ваше сообщение..." required></textarea>
-    </div>
-    
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_next" value="/thanks.html">
-    
-    <button type="submit" class="btn-submit">
-      Отправить сообщение ✨
-    </button>
-    
-  </form>
-  
-</div>
+</footer>
+
+<script>
+    // Анимация при скролле
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+    animatedElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

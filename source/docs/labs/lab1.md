@@ -1,206 +1,430 @@
----
-title: Лабораторная работа №1
-hide:
-  - navigation
-  - toc
----
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Лабораторная работа №1 — MkDocs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-  .lab-container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  .lab-title {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .lab-title h1 {
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    font-weight: 700;
-    background: linear-gradient(135deg, #00c6ff, #7c3aed, #ff00cc);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 0.5rem;
-  }
-  
-  .lab-title h2 {
-    font-size: clamp(1.2rem, 4vw, 1.5rem);
-    color: #94a3b8;
-    font-weight: 400;
-  }
-  
-  .section-icon {
-    font-size: 1.8rem;
-    margin-right: 0.5rem;
-  }
-  
-  .section-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, #ffffff, #00c6ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  
-  .content-card {
-    background: rgba(20, 20, 35, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 198, 255, 0.2);
-    border-radius: 24px;
-    padding: 1.8rem;
-    margin: 1.5rem 0;
-    transition: all 0.3s ease;
-  }
-  
-  .content-card:hover {
-    border-color: rgba(0, 198, 255, 0.5);
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 198, 255, 0.1);
-  }
-  
-  .task-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .task-list li {
-    padding: 0.6rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-    color: #cbd5e1;
-    border-bottom: 1px solid rgba(0, 198, 255, 0.1);
-  }
-  
-  .task-list li:last-child {
-    border-bottom: none;
-  }
-  
-  .task-list li::before {
-    content: "✦";
-    position: absolute;
-    left: 0;
-    color: #00c6ff;
-  }
-  
-  pre {
-    background: #0a0a0f !important;
-    border: 1px solid rgba(0, 198, 255, 0.3) !important;
-    border-radius: 16px !important;
-    padding: 1.2rem !important;
-    overflow-x: auto;
-    font-family: 'Fira Code', 'Courier New', monospace;
-    font-size: 0.9rem;
-    color: #00c6ff;
-  }
-  
-  code {
-    background: rgba(0, 198, 255, 0.1);
-    color: #00c6ff;
-    padding: 0.2rem 0.4rem;
-    border-radius: 8px;
-    font-size: 0.9em;
-  }
-  
-  .goal-text, .conclusion-text {
-    color: #cbd5e1;
-    line-height: 1.6;
-    font-size: 1rem;
-  }
-  
-  hr {
-    border: none;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #00c6ff, #7c3aed, #ff00cc, transparent);
-    margin: 2rem 0;
-  }
-  
-  @media (max-width: 768px) {
-    .content-card {
-      padding: 1.2rem;
-    }
-    .section-title {
-      font-size: 1.3rem;
-    }
-    pre {
-      font-size: 0.75rem;
-      padding: 1rem !important;
-    }
-  }
-</style>
+        body {
+            background-color: #EFEAD4;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+            color: #1E1E1E;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
 
-<div class="lab-container">
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2ddc9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #677178;
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5C1E1F;
+        }
 
-<!-- ЗАГОЛОВОК -->
-<div class="lab-title">
-  <h1>✦ Лабораторная работа №1 ✦</h1>
-  <h2>Создание и развертывание статического сайта на базе MkDocs</h2>
-</div>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
 
-<hr>
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-<!-- ЦЕЛЬ РАБОТЫ -->
-<div class="content-card">
-  <h3 class="section-title">
-    <span class="section-icon">🎯</span> Цель работы
-  </h3>
-  <div class="goal-text">
-    Освоить процесс создания статического сайта с использованием генератора документации MkDocs, научиться организовывать структуру документации проекта и развернуть сайт с использованием GitHub Pages.
-  </div>
-</div>
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
 
-<!-- ЗАДАНИЕ -->
-<div class="content-card">
-  <h3 class="section-title">
-    <span class="section-icon">📝</span> Задание
-  </h3>
-  <ul class="task-list">
-    <li>Создать публичный репозиторий на GitHub</li>
-    <li>Настроить GitHub Pages для публикации из каталога <code>/docs</code></li>
-    <li>Установить и настроить MkDocs</li>
-    <li>Создать структуру сайта с несколькими страницами</li>
-    <li>Настроить тему оформления</li>
-    <li>Опубликовать сайт на GitHub Pages</li>
-  </ul>
-</div>
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-<!-- КОД РЕАЛИЗАЦИИ -->
-<div class="content-card">
-  <h3 class="section-title">
-    <span class="section-icon">💻</span> Код реализации
-  </h3>
-  <pre style="margin: 0; font-family: monospace;">
-mkdocs new source
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            background: rgba(239, 234, 212, 0.75);
+            border-bottom: 1px solid rgba(103, 113, 120, 0.15);
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: -0.01em;
+            color: #5C1E1F;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .nav-logo:hover {
+            opacity: 0.75;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1E1E1E;
+            cursor: pointer;
+            padding: 8px 0;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #5C1E1F;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #5C1E1F;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Back button */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 32px 0 24px;
+            color: #677178;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #5C1E1F;
+        }
+
+        /* Header */
+        .lab-header {
+            margin: 40px 0 32px;
+            border-bottom: 1px solid rgba(103, 113, 120, 0.2);
+            padding-bottom: 24px;
+        }
+
+        .lab-number {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #5C1E1F;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .lab-title {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1E1E1E;
+            margin-bottom: 12px;
+        }
+
+        .lab-subtitle {
+            font-size: 1.2rem;
+            color: #677178;
+            font-weight: 400;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(239, 234, 212, 0.6);
+            backdrop-filter: blur(4px);
+            border-radius: 24px;
+            padding: 32px;
+            margin: 28px 0;
+            border: 1px solid rgba(103, 113, 120, 0.2);
+            box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1E1E1E;
+        }
+
+        .card-title::before {
+            content: '✦';
+            color: #5C1E1F;
+            font-size: 1.6rem;
+        }
+
+        /* Code block */
+        .code-block {
+            background: #1E1E1E;
+            border-radius: 18px;
+            padding: 20px;
+            margin: 16px 0 8px;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #e2ddc9;
+        }
+
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .task-list li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(103, 113, 120, 0.1);
+        }
+
+        .task-list li:last-child {
+            border-bottom: none;
+        }
+
+        .task-list li::before {
+            content: '▹';
+            color: #5C1E1F;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding: 32px 0;
+            border-top: 1px solid rgba(103, 113, 120, 0.2);
+            text-align: center;
+            color: #677178;
+            font-size: 0.85rem;
+        }
+
+        .to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #5C1E1F;
+            color: #EFEAD4;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 4px 12px rgba(92, 30, 31, 0.3);
+        }
+
+        .to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .to-top:hover {
+            transform: translateY(-4px);
+            background: #3f1415;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            .card {
+                padding: 24px;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 42px;
+                height: 42px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="../index.md" class="nav-logo">Alexandra Paramonova</a>
+        <div class="nav-links">
+            <button class="nav-link" onclick="window.location.href='../index.md'">Home</button>
+            <button class="nav-link" onclick="window.location.href='../about.md'">About</button>
+        </div>
+    </div>
+</nav>
+
+<main class="container">
+    <!-- Back button -->
+    <a href="../index.md" class="back-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Назад к портфолио
+    </a>
+
+    <!-- Header -->
+    <div class="lab-header animate-on-scroll">
+        <div class="lab-number">Лабораторная работа №1</div>
+        <h1 class="lab-title">Создание и развертывание статического сайта на базе MkDocs</h1>
+    </div>
+
+    <!-- Цель работы -->
+    <div class="card animate-on-scroll">
+        <h2 class="card-title">Цель работы</h2>
+        <p style="color: #2C2C2C; font-size: 1.05rem; line-height: 1.6;">
+            Освоить процесс создания статического сайта с использованием генератора документации MkDocs, научиться организовывать структуру документации проекта и развернуть сайт с использованием GitHub Pages.
+        </p>
+    </div>
+
+    <!-- Задание -->
+    <div class="card animate-on-scroll">
+        <h2 class="card-title">Задание</h2>
+        <ul class="task-list">
+            <li>Создать публичный репозиторий на GitHub</li>
+            <li>Настроить GitHub Pages для публикации из каталога <code style="background: rgba(103,113,120,0.15); padding: 2px 8px; border-radius: 8px;">/docs</code></li>
+            <li>Установить и настроить MkDocs</li>
+            <li>Создать структуру сайта с несколькими страницами</li>
+            <li>Настроить тему оформления</li>
+            <li>Опубликовать сайт на GitHub Pages</li>
+        </ul>
+    </div>
+
+    <!-- Код реализации -->
+    <div class="card animate-on-scroll">
+        <h2 class="card-title">Код реализации</h2>
+        <div class="code-block">
+            <pre>mkdocs new source
 cd source
 mkdocs serve
 mkdocs build -d ../docs</pre>
-</div>
+        </div>
+        <p style="margin-top: 16px; color: #677178; font-size: 0.9rem;">
+            💡 Команды для создания нового проекта MkDocs, локального запуска и сборки статического сайта.
+        </p>
+    </div>
 
-<!-- ВЫВОД -->
-<div class="content-card">
-  <h3 class="section-title">
-    <span class="section-icon">📌</span> Вывод
-  </h3>
-  <div class="conclusion-text">
-    В ходе работы был создан статический сайт с помощью MkDocs и опубликован в интернете через GitHub Pages. Были изучены основы работы с Git и структура документации проекта.
-  </div>
-</div>
+    <!-- Вывод -->
+    <div class="card animate-on-scroll">
+        <h2 class="card-title">Вывод</h2>
+        <p style="color: #2C2C2C; font-size: 1.05rem; line-height: 1.6;">
+            В ходе работы был создан статический сайт с помощью MkDocs и опубликован в интернете через GitHub Pages. Были изучены основы работы с Git и структура документации проекта.
+        </p>
+    </div>
+</main>
 
-<hr>
+<footer class="footer">
+    <div class="container">
+        Alexandra Paramonova • P3122 • Лабораторная работа №1
+    </div>
+</footer>
 
-<!-- ДЕКОРАТИВНАЯ ПОДПИСЬ -->
-<div align="center" style="margin-top: 2rem;">
-  <p style="color: #475569; font-size: 0.85rem;">
-    ✦ ИТМО • Нейротехнологии и программирование • 2026 ✦
-  </p>
-</div>
+<button class="to-top" id="toTopBtn" aria-label="Наверх">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 15l-6-6-6 6"/>
+    </svg>
+</button>
 
-</div>
+<script>
+    // Анимация при скролле
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+    animatedElements.forEach(el => observer.observe(el));
+
+    // Кнопка наверх
+    const toTopBtn = document.getElementById('toTopBtn');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            toTopBtn.classList.add('visible');
+        } else {
+            toTopBtn.classList.remove('visible');
+        }
+    });
+    toTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
