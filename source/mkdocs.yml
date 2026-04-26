@@ -3,18 +3,17 @@
 #  Alexandra Paramonova · P3122
 # ============================================
 
-# ----- Основная информация -----
 site_name: Александра Парамонова
 site_description: Премиальное портфолио лабораторных работ по веб-разработке и машинному обучению
 site_author: Александра Парамонова
 site_url: https://alexandraparamonova9.github.io
 
-# ----- Репозиторий -----
+# ВАЖНО: use_directory_urls включает красивые URL (/lab4/ вместо /lab4.md)
+use_directory_urls: true
+
 repo_name: alexandraparamonova9/portfolio
 repo_url: https://github.com/alexandraparamonova9/alexandraparamonova9.github.io
-edit_uri: edit/main/docs/
 
-# ----- Тема: Material с премиум кастомизацией -----
 theme:
   name: material
   language: ru
@@ -22,11 +21,8 @@ theme:
   icon:
     logo: material/code-json
     repo: fontawesome/brands/github
-    edit: material/pencil
 
-  # Цветовая схема — ваша премиум палитра
   palette:
-    # Светлая тема (основная)
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: custom
@@ -34,8 +30,6 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Переключить на тёмную тему
-
-    # Тёмная тема (элегантная)
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: custom
@@ -44,122 +38,74 @@ theme:
         icon: material/weather-night
         name: Переключить на светлую тему
 
-  # Премиум шрифты
   font:
     text: Inter
     code: JetBrains Mono
 
-  # Включенные фичи
   features:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
-    - navigation.expand
     - navigation.top
     - navigation.footer
-    - navigation.indexes
     - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.progress
-    - toc.follow
-    - toc.integrate
     - search.suggest
     - search.highlight
-    - search.share
-    - content.code.annotate
     - content.code.copy
-    - content.tabs.link
 
-# ----- Кастомные стили -----
 extra_css:
-  - https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap
-  - https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap
   - css/custom.css
 
 extra_javascript:
   - js/custom.js
 
-# ----- Расширения Markdown -----
 markdown_extensions:
-  # Адмонишены (красивые блоки)
   - admonition
   - pymdownx.details
-
-  # Подсветка кода
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-      guess_lang: false
-      use_pygments: true
-      noclasses: false
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-
-  # Табы
+  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
-
-  # Эмодзи
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-
-  # Атрибуты и HTML
   - attr_list
   - md_in_html
-
-  # Оглавление
   - toc:
       permalink: true
-      permalink_title: Ссылка на этот раздел
       toc_depth: 3
-
-  # Сноски и таблицы
   - footnotes
   - tables
-  - def_list
-
-  # Чеклисты
   - pymdownx.tasklist:
       custom_checkbox: true
-      clickable_checkbox: false
 
-# ----- Плагины -----
 plugins:
   - search:
       lang: ru
-      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - git-revision-date-localized:
       enable_creation_date: true
       type: date
-      timezone: Europe/Moscow
       locale: ru
-  - minify:
-      minify_html: true
-      minify_css: true
-      minify_js: true
 
-# ----- Навигация -----
+# ========== ПРАВИЛЬНАЯ НАВИГАЦИЯ ==========
 nav:
   - Главная: index.md
   - Обо мне: about.md
   - Лабораторные работы:
-      - Лабораторная работа №1: labs/lab1.md
-      - Лабораторная работа №2: labs/lab2.md
-      - Лабораторная работа №3: labs/lab3.md
-      - Лабораторная работа №4: labs/lab4.md
-      - Лабораторная работа №5: labs/lab5.md
-      - Лабораторная работа №6: labs/lab6.md
-      - Лабораторная работа №7: labs/lab7.md
-      - Лабораторная работа №8: labs/lab8.md
+      - Лабораторная №1: labs/lab1.md
+      - Лабораторная №2: labs/lab2.md
+      - Лабораторная №3: labs/lab3.md
+      - Лабораторная №4: labs/lab4.md
+      - Лабораторная №5: labs/lab5.md
+      - Лабораторная №6: labs/lab6.md
+      - Лабораторная №7: labs/lab7.md
+      - Лабораторная №8: labs/lab8.md
 
-# ----- Дополнительные настройки -----
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -174,5 +120,4 @@ extra:
 
   generator: false
 
-# ----- Копирайт -----
 copyright: © 2026 Александра Парамонова · P3122

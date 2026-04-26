@@ -362,16 +362,16 @@
 
 <nav class="navbar">
     <div class="nav-container">
-        <a href="../index.md" class="nav-logo">Alexandra Paramonova</a>
+        <a href=".." class="nav-logo">Alexandra Paramonova</a>
         <div class="nav-links">
-            <button class="nav-link" onclick="window.location.href='../index.md'">Home</button>
-            <button class="nav-link" onclick="window.location.href='../about.md'">About</button>
+            <button class="nav-link" onclick="location.href='..'">Home</button>
+            <button class="nav-link" onclick="location.href='../about'">About</button>
         </div>
     </div>
 </nav>
 
 <main class="container">
-    <a href="../index.md" class="back-link">
+    <a href=".." class="back-link">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>

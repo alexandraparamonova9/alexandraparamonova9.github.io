@@ -64,7 +64,6 @@
             transform: translateY(0);
         }
 
-        /* Navbar */
         .navbar {
             position: sticky;
             top: 0;
@@ -137,7 +136,6 @@
             width: 100%;
         }
 
-        /* Back button */
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -153,7 +151,6 @@
             color: #5C1E1F;
         }
 
-        /* Header */
         .lab-header {
             margin: 40px 0 32px;
             border-bottom: 1px solid rgba(103, 113, 120, 0.2);
@@ -177,13 +174,6 @@
             margin-bottom: 12px;
         }
 
-        .lab-subtitle {
-            font-size: 1.2rem;
-            color: #677178;
-            font-weight: 400;
-        }
-
-        /* Cards */
         .card {
             background: rgba(239, 234, 212, 0.6);
             backdrop-filter: blur(4px);
@@ -216,7 +206,6 @@
             font-size: 1.6rem;
         }
 
-        /* Code block */
         .code-block {
             background: #1E1E1E;
             border-radius: 18px;
@@ -256,7 +245,6 @@
             font-size: 1rem;
         }
 
-        /* Footer */
         .footer {
             margin-top: 80px;
             padding: 32px 0;
@@ -320,30 +308,27 @@
 
 <nav class="navbar">
     <div class="nav-container">
-        <a href="../index.md" class="nav-logo">Alexandra Paramonova</a>
+        <a href=".." class="nav-logo">Alexandra Paramonova</a>
         <div class="nav-links">
-            <button class="nav-link" onclick="window.location.href='../index.md'">Home</button>
-            <button class="nav-link" onclick="window.location.href='../about.md'">About</button>
+            <button class="nav-link" onclick="location.href='..'">Home</button>
+            <button class="nav-link" onclick="location.href='../about'">About</button>
         </div>
     </div>
 </nav>
 
 <main class="container">
-    <!-- Back button -->
-    <a href="../index.md" class="back-link">
+    <a href=".." class="back-link">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
         Назад к портфолио
     </a>
 
-    <!-- Header -->
     <div class="lab-header animate-on-scroll">
         <div class="lab-number">Лабораторная работа №1</div>
         <h1 class="lab-title">Создание и развертывание статического сайта на базе MkDocs</h1>
     </div>
 
-    <!-- Цель работы -->
     <div class="card animate-on-scroll">
         <h2 class="card-title">Цель работы</h2>
         <p style="color: #2C2C2C; font-size: 1.05rem; line-height: 1.6;">
@@ -351,7 +336,6 @@
         </p>
     </div>
 
-    <!-- Задание -->
     <div class="card animate-on-scroll">
         <h2 class="card-title">Задание</h2>
         <ul class="task-list">
@@ -364,7 +348,6 @@
         </ul>
     </div>
 
-    <!-- Код реализации -->
     <div class="card animate-on-scroll">
         <h2 class="card-title">Код реализации</h2>
         <div class="code-block">
@@ -378,7 +361,6 @@ mkdocs build -d ../docs</pre>
         </p>
     </div>
 
-    <!-- Вывод -->
     <div class="card animate-on-scroll">
         <h2 class="card-title">Вывод</h2>
         <p style="color: #2C2C2C; font-size: 1.05rem; line-height: 1.6;">
@@ -400,7 +382,6 @@ mkdocs build -d ../docs</pre>
 </button>
 
 <script>
-    // Анимация при скролле
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -412,7 +393,6 @@ mkdocs build -d ../docs</pre>
     }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
     animatedElements.forEach(el => observer.observe(el));
 
-    // Кнопка наверх
     const toTopBtn = document.getElementById('toTopBtn');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
