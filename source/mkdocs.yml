@@ -1,64 +1,61 @@
-# ============================================
-#  MkDocs Configuration — Premium Portfolio
-#  Alexandra Paramonova · P3122
-# ============================================
-
-site_name: Александра Парамонова
-site_description: Премиальное портфолио лабораторных работ по веб-разработке и машинному обучению
+# Настройки сайта
+site_name: Александра Парамонова · P3122
+site_description: Портфолио лабораторных работ по веб-разработке и машинному обучению
 site_author: Александра Парамонова
 site_url: https://alexandraparamonova9.github.io
 
-# ВАЖНО: use_directory_urls включает красивые URL (/lab4/ вместо /lab4.md)
-use_directory_urls: true
-
-repo_name: alexandraparamonova9/portfolio
+# Репозиторий
+repo_name: alexandraparamonova9/alexandraparamonova9.github.io
 repo_url: https://github.com/alexandraparamonova9/alexandraparamonova9.github.io
 
+# Тема Material — только светлая
 theme:
   name: material
   language: ru
-
   icon:
-    logo: material/code-json
+    logo: material/code-brackets
     repo: fontawesome/brands/github
 
+  # Только светлая тема
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: custom
-      accent: custom
+      primary: deep purple
+      accent: purple
       toggle:
         icon: material/weather-sunny
-        name: Переключить на тёмную тему
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/weather-night
-        name: Переключить на светлую тему
+        name: Светлая тема
 
+  # Шрифты
   font:
     text: Inter
     code: JetBrains Mono
 
+  # Фичи
   features:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
+    - navigation.expand
     - navigation.top
     - navigation.footer
-    - navigation.instant
     - search.suggest
     - search.highlight
+    - content.code.annotate
     - content.code.copy
+    - content.tabs.link
+    - announce.dismiss
 
+# Дополнительные стили
 extra_css:
-  - css/custom.css
+  - https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap
+  - https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap
+  - custom.css
 
 extra_javascript:
-  - js/custom.js
+  - https://unpkg.com/feather-icons
 
+# Расширения Markdown
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -68,7 +65,11 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.emoji:
@@ -83,41 +84,43 @@ markdown_extensions:
   - tables
   - pymdownx.tasklist:
       custom_checkbox: true
+      clickable_checkbox: true
 
+# Навигация
+nav:
+  - Главная: index.md
+  - Обо мне: about.md
+  - Лабораторные работы:
+      - Лабораторная работа №1: labs/lab1.md
+      - Лабораторная работа №2: labs/lab2.md
+      - Лабораторная работа №3: labs/lab3.md
+      - Лабораторная работа №4: labs/lab4.md
+      - Лабораторная работа №5: labs/lab5.md
+      - Лабораторная работа №6: labs/lab6.md
+      - Лабораторная работа №7: labs/lab7.md
+      - Лабораторная работа №8: labs/lab8.md
+
+# Плагины
 plugins:
   - search:
       lang: ru
   - git-revision-date-localized:
       enable_creation_date: true
       type: date
-      locale: ru
+  - minify:
+      minify_html: true
 
-# ========== ПРАВИЛЬНАЯ НАВИГАЦИЯ ==========
-nav:
-  - Главная: index.md
-  - Обо мне: about.md
-  - Лабораторные работы:
-      - Лабораторная №1: labs/lab1.md
-      - Лабораторная №2: labs/lab2.md
-      - Лабораторная №3: labs/lab3.md
-      - Лабораторная №4: labs/lab4.md
-      - Лабораторная №5: labs/lab5.md
-      - Лабораторная №6: labs/lab6.md
-      - Лабораторная №7: labs/lab7.md
-      - Лабораторная №8: labs/lab8.md
-
+# Дополнительные настройки
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/alexandraparamonova9
-      name: GitHub
     - icon: fontawesome/brands/telegram
       link: https://t.me/aleqxji
-      name: Telegram
     - icon: fontawesome/solid/envelope
       link: mailto:mailParamonova@yandex.ru
-      name: Email
 
   generator: false
 
-copyright: © 2026 Александра Парамонова · P3122
+# Копирайт
+copyright: Copyright &copy; 2026 Александра Парамонова

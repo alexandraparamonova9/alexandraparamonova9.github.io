@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Лабораторная работа №2 — NumPy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Лабораторная работа №2 — NumPy | Александра Парамонова</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -15,370 +15,315 @@
         }
 
         body {
-            background-color: #EFEAD4;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-            color: #1E1E1E;
-            line-height: 1.5;
-            scroll-behavior: smooth;
+            background-color: #f3e9da;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 2rem;
+            backdrop-filter: blur(20px);
+            background: rgba(243, 233, 218, 0.85);
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-bottom: 1px solid rgba(81, 32, 33, 0.08);
         }
-        ::-webkit-scrollbar-track {
-            background: #e2ddc9;
+
+        .navbar.hidden {
+            transform: translateY(-100%);
         }
-        ::-webkit-scrollbar-thumb {
-            background: #677178;
-            border-radius: 8px;
+
+        .navbar.scrolled {
+            padding: 1rem 2rem;
+            background: rgba(243, 233, 218, 0.95);
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #5C1E1F;
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #512021;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover { opacity: 0.7; }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2a2a2a;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #5d6b4d;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: #512021; }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #512021;
+            margin: 5px 0;
+            transition: 0.3s;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding: 8rem 1.5rem 4rem;
         }
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-on-scroll {
+        .lab-header {
+            margin-bottom: 4rem;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transform: translateY(30px);
+            transition: all 0.8s ease;
         }
 
-        .animate-on-scroll.animated {
+        .lab-header.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(12px);
-            background: rgba(239, 234, 212, 0.75);
-            border-bottom: 1px solid rgba(103, 113, 120, 0.15);
-            padding: 20px 0;
+        .lab-number {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #5d6b4d;
+            margin-bottom: 1rem;
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .nav-logo {
-            font-weight: 600;
-            font-size: 1.25rem;
-            letter-spacing: -0.01em;
-            color: #5C1E1F;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .nav-logo:hover {
-            opacity: 0.75;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-
-        .nav-link {
-            background: none;
-            border: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+        .lab-header h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #512021;
+            font-family: 'Cormorant Garamond', serif;
             font-weight: 500;
-            color: #1E1E1E;
-            cursor: pointer;
-            padding: 8px 0;
-            transition: color 0.2s;
-            position: relative;
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #5C1E1F;
-            transition: width 0.3s ease;
+        .lab-header h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #666;
+            line-height: 1.4;
         }
 
-        .nav-link:hover {
-            color: #5C1E1F;
+        .repo-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: #5d6b4d;
+            color: #f3e9da;
+            text-decoration: none;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
-        .nav-link:hover::after {
-            width: 100%;
+        .repo-link:hover {
+            background: #4a5640;
+            transform: scale(1.02);
+        }
+
+        .section {
+            background: white;
+            border-radius: 32px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            border: 1px solid rgba(81, 32, 33, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            color: #512021;
+            margin-bottom: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section p, .section ul, .section ol {
+            color: #444;
+            line-height: 1.7;
+        }
+
+        .section ul, .section ol {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .section li {
+            margin-bottom: 0.5rem;
+        }
+
+        pre {
+            background: #1a1a1a;
+            color: #e2e2e2;
+            padding: 1.5rem;
+            border-radius: 20px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            margin: 1.5rem 0;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            background: rgba(81, 32, 33, 0.08);
+            padding: 0.2rem 0.4rem;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            border-top: 1px solid rgba(81, 32, 33, 0.1);
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem; }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: #f3e9da;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                transition: right 0.4s ease;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+            }
+            
+            .nav-links.active { right: 0; }
+            .mobile-menu-btn { display: block; }
+            
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+            
+            .container { padding-top: 6rem; }
+            .section { padding: 1.5rem; }
+            pre { font-size: 0.7rem; padding: 1rem; }
         }
 
         .back-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            margin: 32px 0 24px;
-            color: #677178;
+            gap: 0.5rem;
+            color: #5d6b4d;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
+            margin-bottom: 2rem;
+            transition: gap 0.3s ease;
         }
 
         .back-link:hover {
-            color: #5C1E1F;
-        }
-
-        .lab-header {
-            margin: 40px 0 32px;
-            border-bottom: 1px solid rgba(103, 113, 120, 0.2);
-            padding-bottom: 24px;
-        }
-
-        .lab-number {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #5C1E1F;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .lab-title {
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #1E1E1E;
-            margin-bottom: 12px;
-        }
-
-        .lab-subtitle {
-            font-size: 1.2rem;
-            color: #677178;
-            font-weight: 400;
-        }
-
-        .repo-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 16px 0 8px;
-            padding: 8px 20px;
-            background: rgba(92, 30, 31, 0.08);
-            border-radius: 40px;
-            text-decoration: none;
-            color: #5C1E1F;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-
-        .repo-link:hover {
-            background: rgba(92, 30, 31, 0.15);
-            transform: translateY(-1px);
-        }
-
-        .card {
-            background: rgba(239, 234, 212, 0.6);
-            backdrop-filter: blur(4px);
-            border-radius: 24px;
-            padding: 32px;
-            margin: 28px 0;
-            border: 1px solid rgba(103, 113, 120, 0.2);
-            box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
-        }
-
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #1E1E1E;
-        }
-
-        .card-title::before {
-            content: '✦';
-            color: #5C1E1F;
-            font-size: 1.6rem;
-        }
-
-        .code-block {
-            background: #1E1E1E;
-            border-radius: 18px;
-            padding: 24px;
-            margin: 16px 0 8px;
-            overflow-x: auto;
-        }
-
-        .code-block pre {
-            margin: 0;
-            font-family: 'JetBrains Mono', 'Fira Code', monospace;
-            font-size: 0.8rem;
-            line-height: 1.55;
-            color: #e2ddc9;
-            white-space: pre-wrap;
-            word-break: break-word;
-        }
-
-        .task-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .task-list li {
-            padding: 10px 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            border-bottom: 1px solid rgba(103, 113, 120, 0.1);
-        }
-
-        .task-list li:last-child {
-            border-bottom: none;
-        }
-
-        .task-list li::before {
-            content: '▹';
-            color: #5C1E1F;
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-
-        .footer {
-            margin-top: 80px;
-            padding: 32px 0;
-            border-top: 1px solid rgba(103, 113, 120, 0.2);
-            text-align: center;
-            color: #677178;
-            font-size: 0.85rem;
-        }
-
-        .to-top {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: #5C1E1F;
-            color: #EFEAD4;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            box-shadow: 0 4px 12px rgba(92, 30, 31, 0.3);
-        }
-
-        .to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .to-top:hover {
-            transform: translateY(-4px);
-            background: #3f1415;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-            .card {
-                padding: 24px;
-            }
-            .nav-container {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .code-block pre {
-                font-size: 0.7rem;
-            }
-            .to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 42px;
-                height: 42px;
-            }
+            gap: 0.75rem;
+            color: #512021;
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar">
+<nav class="navbar" id="navbar">
     <div class="nav-container">
-        <a href=".." class="nav-logo">Alexandra Paramonova</a>
-        <div class="nav-links">
-            <button class="nav-link" onclick="location.href='..'">Home</button>
-            <button class="nav-link" onclick="location.href='../about'">About</button>
+        <a href="https://alexandraparamonova9.github.io/" class="logo">AP</a>
+        <div class="nav-links" id="navLinks">
+            <a href="https://alexandraparamonova9.github.io/">Главная</a>
+            <a href="https://alexandraparamonova9.github.io/#labs">Работы</a>
+            <a href="https://alexandraparamonova9.github.io/about/">Обо мне</a>
         </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </div>
 </nav>
 
-<main class="container">
-    <a href=".." class="back-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-        Назад к портфолио
-    </a>
+<div class="container">
+    <a href="https://alexandraparamonova9.github.io/#labs" class="back-link">← Назад к работам</a>
 
-    <div class="lab-header animate-on-scroll">
+    <div class="lab-header" id="header">
         <div class="lab-number">Лабораторная работа №2</div>
-        <h1 class="lab-title">Основы NumPy: массивы и векторные операции</h1>
-        <a href="https://github.com/alexandraparamonova9/Python2sem" class="repo-link" target="_blank" rel="noopener noreferrer">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-            Репозиторий с исходным кодом
-        </a>
+        <h1>Основы NumPy</h1>
+        <h2>массивы и векторные операции</h2>
+        <a href="https://github.com/alexandraparamonova9/Python2sem" class="repo-link" target="_blank">📦 Репозиторий с исходным кодом →</a>
     </div>
 
-    <div class="card animate-on-scroll">
-        <h2 class="card-title">Цель работы</h2>
-        <p style="color: #2C2C2C; font-size: 1.05rem; line-height: 1.6;">
-            Освоить базовые операции с массивами в библиотеке NumPy, научиться выполнять векторные и матричные вычисления, проводить статистический анализ данных и визуализировать результаты с помощью Matplotlib и Seaborn.
-        </p>
+    <div class="section" id="goal">
+        <h3>🎯 Цель работы</h3>
+        <p>Освоить базовые операции с массивами в библиотеке NumPy, научиться выполнять векторные и матричные вычисления, проводить статистический анализ данных и визуализировать результаты с помощью Matplotlib и Seaborn.</p>
     </div>
 
-    <div class="card animate-on-scroll">
-        <h2 class="card-title">Задание</h2>
-        <ul class="task-list">
-            <li>Создать массив от 0 до 9 с помощью np.arange()</li>
-            <li>Создать матрицу 5x5 со случайными числами от 0 до 1</li>
+    <div class="section" id="task">
+        <h3>📝 Задание</h3>
+        <ul>
+            <li>Создать массив от 0 до 9 с помощью <code>np.arange()</code></li>
+            <li>Создать матрицу 5×5 со случайными числами от 0 до 1</li>
             <li>Выполнить преобразование формы массива (reshape) и транспонирование</li>
             <li>Реализовать векторные операции: сложение, умножение на скаляр, поэлементное умножение, скалярное произведение</li>
             <li>Реализовать матричные операции: умножение матриц, определитель, обратную матрицу, решение системы линейных уравнений</li>
@@ -389,10 +334,9 @@
         </ul>
     </div>
 
-    <div class="card animate-on-scroll">
-        <h2 class="card-title">Код реализации</h2>
-        <div class="code-block">
-            <pre>import numpy as np
+    <div class="section" id="code">
+        <h3>💻 Код реализации</h3>
+        <pre>import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -472,56 +416,65 @@ def plot_line(x, y):
     plt.title('Оценки студентов по математике')
     plt.savefig('plots/line_plot.png')
     plt.close()</pre>
-        </div>
-        <p style="margin-top: 16px; color: #677178; font-size: 0.9rem;">
-            💡 Код содержит аннотации типов, документацию и соответствует стандарту PEP 8.
-        </p>
     </div>
 
-    <div class="card animate-on-scroll">
-        <h2 class="card-title">Вывод</h2>
-        <p style="color: #2C2C2C; font-size: 1.05rem; line-height: 1.6;">
-            В ходе выполнения лабораторной работы были освоены основные возможности библиотеки NumPy для научных вычислений. Научилась создавать и преобразовывать массивы, выполнять векторные и матричные операции, проводить статистический анализ данных и визуализировать результаты.
-            Все функции были протестированы с использованием pytest, код соответствует стандартам PEP 8, содержит аннотации типов и документацию.
-        </p>
+    <div class="section" id="conclusion">
+        <h3>📌 Вывод</h3>
+        <p>В ходе выполнения лабораторной работы были освоены основные возможности библиотеки NumPy для научных вычислений. Научилась создавать и преобразовывать массивы, выполнять векторные и матричные операции, проводить статистический анализ данных и визуализировать результаты. Все функции были протестированы с использованием pytest, код соответствует стандартам PEP 8, содержит аннотации типов и документацию.</p>
     </div>
-</main>
+</div>
 
 <footer class="footer">
-    <div class="container">
-        Alexandra Paramonova • P3122 • Лабораторная работа №2
-    </div>
+    <p>© 2026 Александра Парамонова</p>
 </footer>
 
-<button class="to-top" id="toTopBtn" aria-label="Наверх">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M18 15l-6-6-6 6"/>
-    </svg>
-</button>
-
 <script>
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            navbar.classList.add('hidden');
+        } else {
+            navbar.classList.remove('hidden');
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileBtn?.addEventListener('click', () => {
+        mobileBtn.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    navLinks?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileBtn?.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-                observer.unobserve(entry.target);
+                entry.target.classList.add('visible');
             }
         });
-    }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
-    animatedElements.forEach(el => observer.observe(el));
+    }, observerOptions);
 
-    const toTopBtn = document.getElementById('toTopBtn');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            toTopBtn.classList.add('visible');
-        } else {
-            toTopBtn.classList.remove('visible');
-        }
-    });
-    toTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    document.querySelectorAll('.lab-header, .section').forEach(el => observer.observe(el));
 </script>
 
 </body>

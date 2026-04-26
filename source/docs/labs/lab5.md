@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Лабораторная работа №5 — Регрессия (Scikit-Learn)</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Лабораторная работа №5 — Scikit-Learn Регрессия | Александра Парамонова</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -15,380 +15,276 @@
         }
 
         body {
-            background-color: #EFEAD4;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-            color: #1E1E1E;
-            line-height: 1.5;
-            scroll-behavior: smooth;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #e2ddc9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #677178;
-            border-radius: 8px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #5C1E1F;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        }
-
-        .animate-on-scroll.animated {
-            opacity: 1;
-            transform: translateY(0);
+            background-color: #f3e9da;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
         }
 
         .navbar {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 2rem;
+            backdrop-filter: blur(20px);
+            background: rgba(243, 233, 218, 0.85);
             z-index: 1000;
-            backdrop-filter: blur(12px);
-            background: rgba(239, 234, 212, 0.75);
-            border-bottom: 1px solid rgba(103, 113, 120, 0.15);
-            padding: 20px 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-bottom: 1px solid rgba(81, 32, 33, 0.08);
         }
 
+        .navbar.hidden { transform: translateY(-100%); }
+        .navbar.scrolled { padding: 1rem 2rem; background: rgba(243, 233, 218, 0.95); }
+
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
         }
 
-        .nav-logo {
-            font-weight: 600;
+        .logo {
             font-size: 1.25rem;
-            letter-spacing: -0.01em;
-            color: #5C1E1F;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #512021;
             text-decoration: none;
-            transition: opacity 0.2s;
+            transition: opacity 0.3s ease;
         }
 
-        .nav-logo:hover {
-            opacity: 0.75;
-        }
+        .logo:hover { opacity: 0.7; }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 2.5rem;
             align-items: center;
         }
 
-        .nav-link {
-            background: none;
-            border: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+        .nav-links a {
+            text-decoration: none;
+            color: #2a2a2a;
+            font-size: 0.9rem;
             font-weight: 500;
-            color: #1E1E1E;
-            cursor: pointer;
-            padding: 8px 0;
-            transition: color 0.2s;
+            transition: color 0.3s ease;
             position: relative;
         }
 
-        .nav-link::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0;
-            height: 2px;
-            background: #5C1E1F;
+            height: 1px;
+            background: #5d6b4d;
             transition: width 0.3s ease;
         }
 
-        .nav-link:hover {
-            color: #5C1E1F;
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: #512021; }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
         }
 
-        .nav-link:hover::after {
-            width: 100%;
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #512021;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 8rem 1.5rem 4rem;
+        }
+
+        .lab-header {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .lab-header.visible { opacity: 1; transform: translateY(0); }
+
+        .lab-number {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #5d6b4d;
+            margin-bottom: 1rem;
+        }
+
+        .lab-header h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #512021;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .lab-header h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .section {
+            background: white;
+            border-radius: 32px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            border: 1px solid rgba(81, 32, 33, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .section.visible { opacity: 1; transform: translateY(0); }
+
+        .section h3 {
+            font-size: 1.5rem;
+            color: #512021;
+            margin-bottom: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section p, .section ul, .section ol {
+            color: #444;
+            line-height: 1.7;
+        }
+
+        .section ul, .section ol {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .section li { margin-bottom: 0.5rem; }
+
+        .colab-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #512021;
+            color: #f3e9da;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .colab-link:hover {
+            background: #3a1718;
+            transform: scale(1.02);
+            gap: 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            border-top: 1px solid rgba(81, 32, 33, 0.1);
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem; }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: #f3e9da;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                transition: right 0.4s ease;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+            }
+            
+            .nav-links.active { right: 0; }
+            .mobile-menu-btn { display: block; }
+            
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+            
+            .container { padding-top: 6rem; }
+            .section { padding: 1.5rem; }
         }
 
         .back-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            margin: 32px 0 24px;
-            color: #677178;
+            gap: 0.5rem;
+            color: #5d6b4d;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
+            margin-bottom: 2rem;
+            transition: gap 0.3s ease;
         }
 
-        .back-link:hover {
-            color: #5C1E1F;
-        }
-
-        .lab-header {
-            margin: 40px 0 32px;
-            border-bottom: 1px solid rgba(103, 113, 120, 0.2);
-            padding-bottom: 24px;
-        }
-
-        .lab-number {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #5C1E1F;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .lab-title {
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #1E1E1E;
-            margin-bottom: 12px;
-        }
-
-        .card {
-            background: rgba(239, 234, 212, 0.6);
-            backdrop-filter: blur(4px);
-            border-radius: 24px;
-            padding: 32px;
-            margin: 28px 0;
-            border: 1px solid rgba(103, 113, 120, 0.2);
-            box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
-        }
-
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #1E1E1E;
-        }
-
-        .card-title::before {
-            content: '✦';
-            color: #5C1E1F;
-            font-size: 1.6rem;
-        }
-
-        .task-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .task-list li {
-            padding: 10px 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            border-bottom: 1px solid rgba(103, 113, 120, 0.1);
-        }
-
-        .task-list li:last-child {
-            border-bottom: none;
-        }
-
-        .task-list li::before {
-            content: '▹';
-            color: #5C1E1F;
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-
-        .text-content {
-            color: #2C2C2C;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        .model-list {
-            list-style: none;
-            padding: 12px 0 8px 0;
-        }
-
-        .model-list li {
-            padding: 6px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .model-list li::before {
-            content: '▹';
-            color: #5C1E1F;
-            font-size: 0.9rem;
-        }
-
-        .optimization-note {
-            background: rgba(92, 30, 31, 0.06);
-            border-radius: 16px;
-            padding: 16px 20px;
-            margin: 16px 0;
-            border-left: 3px solid #5C1E1F;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #5C1E1F;
-            color: #EFEAD4;
-            font-size: 0.75rem;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-weight: 500;
-        }
-
-        .colab-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 28px;
-            background: #5C1E1F;
-            color: #EFEAD4;
-            text-decoration: none;
-            border-radius: 40px;
-            font-weight: 500;
-            transition: all 0.25s ease;
-        }
-
-        .colab-link:hover {
-            background: #3f1415;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(92, 30, 31, 0.2);
-        }
-
-        .footer {
-            margin-top: 80px;
-            padding: 32px 0;
-            border-top: 1px solid rgba(103, 113, 120, 0.2);
-            text-align: center;
-            color: #677178;
-            font-size: 0.85rem;
-        }
-
-        .to-top {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: #5C1E1F;
-            color: #EFEAD4;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            box-shadow: 0 4px 12px rgba(92, 30, 31, 0.3);
-        }
-
-        .to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .to-top:hover {
-            transform: translateY(-4px);
-            background: #3f1415;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-            .card {
-                padding: 24px;
-            }
-            .nav-container {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 42px;
-                height: 42px;
-            }
-            .colab-link {
-                padding: 12px 24px;
-                font-size: 0.9rem;
-            }
-        }
+        .back-link:hover { gap: 0.75rem; color: #512021; }
     </style>
 </head>
 <body>
 
-<nav class="navbar">
+<nav class="navbar" id="navbar">
     <div class="nav-container">
-        <a href=".." class="nav-logo">Alexandra Paramonova</a>
-        <div class="nav-links">
-            <button class="nav-link" onclick="location.href='..'">Home</button>
-            <button class="nav-link" onclick="location.href='../about'">About</button>
+        <a href="https://alexandraparamonova9.github.io/" class="logo">AP</a>
+        <div class="nav-links" id="navLinks">
+            <a href="https://alexandraparamonova9.github.io/">Главная</a>
+            <a href="https://alexandraparamonova9.github.io/#labs">Работы</a>
+            <a href="https://alexandraparamonova9.github.io/about/">Обо мне</a>
         </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </div>
 </nav>
 
-<main class="container">
-    <a href=".." class="back-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-        Назад к портфолио
-    </a>
+<div class="container">
+    <a href="https://alexandraparamonova9.github.io/#labs" class="back-link">← Назад к работам</a>
 
-    <div class="lab-header animate-on-scroll">
+    <div class="lab-header" id="header">
         <div class="lab-number">Лабораторная работа №5</div>
-        <h1 class="lab-title">Регрессия с применением Scikit-Learn</h1>
+        <h1>Регрессия</h1>
+        <h2>с применением Scikit-Learn</h2>
     </div>
 
-    <div class="card animate-on-scroll">
-        <h2 class="card-title">Цель работы</h2>
-        <p class="text-content">
-            Освоить применение алгоритмов машинного обучения для решения задачи регрессии на примере предсказания стоимости недвижимости. Изучить предобработку данных, обучение моделей регрессии и оценку их качества.
-        </p>
+    <div class="section" id="goal">
+        <h3>🎯 Цель работы</h3>
+        <p>Освоить применение алгоритмов машинного обучения для решения задачи регрессии на примере предсказания стоимости недвижимости. Изучить предобработку данных, обучение моделей регрессии и оценку их качества.</p>
     </div>
 
-    <div class="card animate-on-scroll">
-        <h2 class="card-title">Задание</h2>
-        <ul class="task-list">
+    <div class="section" id="task">
+        <h3>📝 Задание</h3>
+        <ul>
             <li>Сделать копию борда преподавателя</li>
             <li>Заполнить все пропуски (TODO) в ноутбуке</li>
             <li>Провести анализ данных</li>
@@ -397,84 +293,73 @@
         </ul>
     </div>
 
-    <div class="card animate-on-scroll">
-        <h2 class="card-title">Самостоятельная работа</h2>
-        <p class="text-content">
-            Исследованы дополнительные модели регрессии:
-        </p>
-        <ul class="model-list">
-            <li>KNeighborsRegressor</li>
-            <li>SVR (Support Vector Regression)</li>
-            <li>XGBoost Regressor</li>
+    <div class="section" id="independent">
+        <h3>💻 Самостоятельная работа</h3>
+        <p>Исследованы дополнительные модели регрессии:</p>
+        <ul>
+            <li><strong>KNeighborsRegressor</strong> — регрессия на основе k ближайших соседей</li>
+            <li><strong>SVR (Support Vector Regression)</strong> — метод опорных векторов для регрессии</li>
+            <li><strong>XGBoost Regressor</strong> — градиентный бустинг для регрессии</li>
         </ul>
-        <div class="optimization-note">
-            <span class="badge">📈 Оптимизация</span>
-            <p style="margin-top: 10px;">Проведена оптимизация параметров модели <strong>Random Forest</strong>. В результате удалось снизить значение ошибки RMSE по сравнению с базовой реализацией.</p>
-        </div>
-        <p class="text-content" style="margin-top: 12px;">
-            Также изучен способ интеграции обученной модели в веб-сервис с использованием фреймворка FastAPI.
-        </p>
+        <p>Проведена оптимизация параметров модели <strong>Random Forest</strong>. В результате удалось снизить значение ошибки RMSE по сравнению с базовой реализацией.</p>
+        <p>Также изучен способ интеграции обученной модели в веб-сервис с использованием фреймворка FastAPI.</p>
     </div>
 
-    <div class="card animate-on-scroll" style="text-align: center;">
-        <h2 class="card-title" style="justify-content: center;">🔗 Выполненный ноутбук</h2>
-        <div style="margin: 24px 0;">
-            <a href="https://colab.research.google.com/drive/1ZvaJrd3akqrdfbyFH2sfkfInKrv7P8sh#scrollTo=NlqDTZ0hkxLe" class="colab-link" target="_blank" rel="noopener noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                    <line x1="8" y1="21" x2="16" y2="21"></line>
-                    <line x1="12" y1="17" x2="12" y2="21"></line>
-                    <path d="M9 12h.01M15 12h.01"></path>
-                </svg>
-                Открыть Google Colab
-            </a>
-        </div>
-        <p style="color: #677178; font-size: 0.85rem;">Лабораторная работа №5 — полный код и анализ</p>
+    <div class="section" id="link">
+        <h3>🔗 Ссылка на выполненный ноутбук</h3>
+        <a href="https://colab.research.google.com/drive/1ZvaJrd3akqrdfbyFH2sfkfInKrv7P8sh#scrollTo=NlqDTZ0hkxLe" class="colab-link" target="_blank">
+            📓 Открыть Google Colab (Лабораторная работа №5)
+        </a>
     </div>
 
-    <div class="card animate-on-scroll">
-        <h2 class="card-title">Вывод</h2>
-        <p class="text-content">
-            В ходе лабораторной работы была решена задача регрессии — предсказание стоимости домов с помощью библиотеки Scikit-Learn. Проведена предобработка данных, обучены несколько моделей, выбрана лучшая. Получены навыки настройки параметров моделей и оценки качества регрессионных моделей.
-        </p>
+    <div class="section" id="conclusion">
+        <h3>📌 Вывод</h3>
+        <p>В ходе лабораторной работы была решена задача регрессии — предсказание стоимости домов с помощью библиотеки Scikit-Learn. Проведена предобработка данных, обучены несколько моделей, выбрана лучшая. Получены навыки настройки параметров моделей и оценки качества регрессионных моделей.</p>
     </div>
-</main>
+</div>
 
 <footer class="footer">
-    <div class="container">
-        Alexandra Paramonova • P3122 • Лабораторная работа №5
-    </div>
+    <p>© 2026 Александра Парамонова</p>
 </footer>
 
-<button class="to-top" id="toTopBtn" aria-label="Наверх">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M18 15l-6-6-6 6"/>
-    </svg>
-</button>
-
 <script>
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > 100) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+        
+        if (currentScroll > lastScroll && currentScroll > 100) navbar.classList.add('hidden');
+        else navbar.classList.remove('hidden');
+        
+        lastScroll = currentScroll;
+    });
+
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileBtn?.addEventListener('click', () => {
+        mobileBtn.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    navLinks?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileBtn?.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-                observer.unobserve(entry.target);
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
-    }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
-    animatedElements.forEach(el => observer.observe(el));
+    }, observerOptions);
 
-    const toTopBtn = document.getElementById('toTopBtn');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            toTopBtn.classList.add('visible');
-        } else {
-            toTopBtn.classList.remove('visible');
-        }
-    });
-    toTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    document.querySelectorAll('.lab-header, .section').forEach(el => observer.observe(el));
 </script>
 
 </body>
