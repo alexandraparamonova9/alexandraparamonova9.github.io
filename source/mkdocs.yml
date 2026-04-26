@@ -16,25 +16,25 @@ theme:
     logo: material/code-brackets
     repo: fontawesome/brands/github
 
-  # Палитра цветов
+  # Палитра цветов — меняем на futuristic
   palette:
+    # Тёмная тема (основная)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Переключить на светлую тему
+
     # Светлая тема
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: deep purple
+      primary: cyan
       accent: purple
       toggle:
         icon: material/weather-sunny
         name: Переключить на тёмную тему
-
-    # Тёмная тема
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: deep purple
-      accent: purple
-      toggle:
-        icon: material/weather-night
-        name: Переключить на светлую тему
 
   # Шрифты
   font:
@@ -55,22 +55,25 @@ theme:
     - content.code.copy
     - content.tabs.link
     - announce.dismiss
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
 
-# Дополнительные стили и скрипты
+# Дополнительные стили и скрипты — ВАЖНО!
 extra_css:
-  - https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap
+  - css/custom.css
+  - https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap
   - https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap
 
 extra_javascript:
   - https://unpkg.com/feather-icons
+  - https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js
 
 # Расширения Markdown
 markdown_extensions:
-  # Адмонишены (блоки с заметками)
   - admonition
   - pymdownx.details
-
-  # Подсветка кода
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -82,49 +85,35 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-
-  # Табы
   - pymdownx.tabbed:
       alternate_style: true
-
-  # Эмодзи
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-
-  # Кнопки и иконки
   - attr_list
   - md_in_html
-
-  # Оглавление
   - toc:
       permalink: true
       toc_depth: 3
-
-  # Сноски
   - footnotes
-
-  # Таблицы
   - tables
-
-  # Списки заданий
   - pymdownx.tasklist:
       custom_checkbox: true
       clickable_checkbox: true
 
-# Навигация
+# Навигация — обновляем путь к лабам
 nav:
   - Главная: index.md
   - Обо мне: about.md
   - Лабораторные работы:
-      - Лабораторная работа №1: labs/lab1.md
-      - Лабораторная работа №2: labs/lab2.md
-      - Лабораторная работа №3: labs/lab3.md
-      - Лабораторная работа №4: labs/lab4.md
-      - Лабораторная работа №5: labs/lab5.md
-      - Лабораторная работа №6: labs/lab6.md
-      - Лабораторная работа №7: labs/lab7.md
-      - Лабораторная работа №8: labs/lab8.md
+      - Лабораторная работа №1: lab1.md
+      - Лабораторная работа №2: lab2.md
+      - Лабораторная работа №3: lab3.md
+      - Лабораторная работа №4: lab4.md
+      - Лабораторная работа №5: lab5.md
+      - Лабораторная работа №6: lab6.md
+      - Лабораторная работа №7: lab7.md
+      - Лабораторная работа №8: lab8.md
 
 # Плагины
 plugins:
@@ -142,11 +131,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/alexandraparamonova9
     - icon: fontawesome/brands/telegram
-      link: https://t.me/alexandra_dev
-    - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/alexandra-paramonova
+      link: https://t.me/aleqxji
     - icon: fontawesome/solid/envelope
-      link: mailto:alexandra@example.com
+      link: mailto:mailParamonova@yandex.ru
 
   generator: false
 
