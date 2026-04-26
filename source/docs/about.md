@@ -1,485 +1,332 @@
+---
+title: Александра Парамонова — Обо мне
+---
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Александра Парамонова — Обо мне</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Александра Парамонова — Обо мне</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── BASE ─────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --b:#512021;
+  --c:#f3e9da;
+  --o:#5d6b4d;
+  --b2:#3a1617;
+  --dark:#1c1410;
+  --ease:cubic-bezier(0.23,1,0.32,1);
+}
+body{
+  background:var(--c);
+  font-family:'DM Sans',system-ui,sans-serif;
+  color:var(--dark);
+  line-height:1.6;
+  overflow-x:hidden;
+}
 
-        body {
-            background-color: #f3e9da;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: #1a1a1a;
-            line-height: 1.5;
-        }
+/* ── NAVBAR ─────────────────────────────── */
+nav{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:1000;
+  padding:1.4rem 3rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:all 0.5s var(--ease);
+  backdrop-filter:blur(24px);
+}
+nav.scrolled{
+  padding:1rem 3rem;
+  background:rgba(243,233,218,0.95);
+  border-bottom:1px solid rgba(81,32,33,0.1);
+}
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.45rem;
+  color:var(--b);
+  text-decoration:none;
+}
+.nav-links{
+  display:flex;
+  gap:2.8rem;
+}
+.nav-links a{
+  text-decoration:none;
+  color:rgba(28,20,16,0.75);
+  font-size:0.93rem;
+  font-weight:500;
+}
+.nav-links a:hover{color:var(--b)}
 
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem 2rem;
-            backdrop-filter: blur(20px);
-            background: rgba(243, 233, 218, 0.85);
-            z-index: 1000;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border-bottom: 1px solid rgba(81, 32, 33, 0.08);
-        }
+/* ── CONTAINER ─────────────────────────────── */
+.container{
+  max-width:1080px;
+  margin:0 auto;
+  padding:160px 2rem 6rem;
+}
 
-        .navbar.hidden {
-            transform: translateY(-100%);
-        }
+/* ── PROFILE ─────────────────────────────── */
+.profile{
+  text-align:center;
+  margin-bottom:5rem;
+}
+.avatar{
+  width:210px;
+  height:210px;
+  border-radius:28px;
+  overflow:hidden;
+  margin:0 auto 2.5rem;
+  box-shadow:0 25px 50px rgba(81,32,33,0.18);
+}
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.profile h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.8rem,7vw,4.2rem);
+  color:var(--b);
+  margin-bottom:0.6rem;
+}
+.subtitle{
+  color:var(--o);
+  font-size:1.15rem;
+  letter-spacing:0.06em;
+  font-weight:500;
+}
 
-        .navbar.scrolled {
-            padding: 1rem 2rem;
-            background: rgba(243, 233, 218, 0.95);
-        }
+/* ── CARDS ─────────────────────────────── */
+.card{
+  background:white;
+  border-radius:32px;
+  padding:3rem;
+  margin-bottom:2.5rem;
+  border:1px solid rgba(81,32,33,0.06);
+  box-shadow:0 10px 30px rgba(0,0,0,0.04);
+}
+.card h2{
+  font-family:'Playfair Display',serif;
+  font-size:2.1rem;
+  color:var(--b);
+  margin-bottom:2rem;
+}
 
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* Info rows */
+.info-row{
+  display:flex;
+  padding:1.1rem 0;
+  border-bottom:1px solid rgba(81,32,33,0.08);
+  align-items:baseline;
+}
+.info-row:last-child{border-bottom:none;}
+.info-label{
+  min-width:160px;
+  font-weight:600;
+  color:var(--o);
+}
+.info-value{
+  color:#333;
+  flex:1;
+}
 
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: -0.02em;
-            color: #512021;
-            text-decoration: none;
-        }
+/* Contacts */
+.contacts{
+  display:flex;
+  justify-content:center;
+  gap:3.5rem;
+  flex-wrap:wrap;
+  margin:3rem 0;
+}
+.contact-item{
+  text-align:center;
+}
+.contact-icon{
+  width:52px;
+  height:52px;
+  margin:0 auto 1rem;
+  color:var(--o);
+}
+.contact-item h4{
+  color:var(--b);
+  margin-bottom:0.4rem;
+}
+.contact-item a{
+  color:#555;
+  text-decoration:none;
+  transition:color 0.3s;
+}
+.contact-item a:hover{color:var(--b);}
 
-        .logo:hover { opacity: 0.7; }
+/* Form */
+.form-group{
+  margin-bottom:1.8rem;
+}
+.form-group label{
+  display:block;
+  margin-bottom:0.6rem;
+  font-weight:500;
+  color:var(--b);
+}
+.form-group input,
+.form-group textarea{
+  width:100%;
+  padding:1.1rem 1.4rem;
+  border:1px solid rgba(81,32,33,0.15);
+  border-radius:18px;
+  background:#fcfaf5;
+  font-family:inherit;
+  font-size:1rem;
+}
+.form-group input:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--o);
+}
+.btn-submit{
+  width:100%;
+  padding:1.15rem;
+  background:var(--b);
+  color:var(--c);
+  border:none;
+  border-radius:50px;
+  font-size:1.02rem;
+  font-weight:500;
+  cursor:pointer;
+  transition:all 0.4s var(--ease);
+}
+.btn-submit:hover{
+  background:var(--b2);
+  transform:scale(1.03);
+}
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
+/* Footer */
+footer{
+  text-align:center;
+  padding:4rem 2rem 3rem;
+  color:rgba(28,20,16,0.45);
+  font-size:0.85rem;
+  border-top:1px solid rgba(81,32,33,0.1);
+}
 
-        .nav-links a {
-            text-decoration: none;
-            color: #2a2a2a;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: #5d6b4d;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: #512021; }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .mobile-menu-btn span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: #512021;
-            margin: 5px 0;
-            transition: 0.3s;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 8rem 1.5rem 4rem;
-        }
-
-        .profile {
-            text-align: center;
-            margin-bottom: 4rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .profile.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .avatar {
-            width: 200px;
-            height: 200px;
-            border-radius: 24px;
-            overflow: hidden;
-            margin: 0 auto 2rem;
-            box-shadow: 0 20px 40px rgba(81, 32, 33, 0.15);
-        }
-
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .profile h1 {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
-            color: #512021;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .profile .subtitle {
-            color: #5d6b4d;
-            font-size: 1.1rem;
-            letter-spacing: 0.05em;
-        }
-
-        .card {
-            background: white;
-            border-radius: 32px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease 0.2s;
-            border: 1px solid rgba(81, 32, 33, 0.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-        }
-
-        .card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card h2 {
-            font-size: 1.8rem;
-            color: #512021;
-            margin-bottom: 1.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-        }
-
-        .info-row {
-            display: flex;
-            align-items: baseline;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(81, 32, 33, 0.08);
-        }
-
-        .info-label {
-            min-width: 140px;
-            font-weight: 600;
-            color: #5d6b4d;
-        }
-
-        .info-value {
-            color: #333;
-        }
-
-        .contacts {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            margin: 2rem 0;
-        }
-
-        .contact-item {
-            text-align: center;
-        }
-
-        .contact-icon {
-            width: 48px;
-            height: 48px;
-            margin: 0 auto 0.75rem;
-            color: #5d6b4d;
-        }
-
-        .contact-item h4 {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #512021;
-        }
-
-        .contact-item a {
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: #512021;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #512021;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid rgba(81, 32, 33, 0.15);
-            border-radius: 16px;
-            font-family: 'Inter', sans-serif;
-            transition: border-color 0.3s ease;
-            background: #fcfaf5;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #5d6b4d;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 1rem;
-            background: #512021;
-            color: #f3e9da;
-            border: none;
-            border-radius: 100px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-submit:hover {
-            background: #3a1718;
-            transform: scale(1.02);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 3rem 1.5rem;
-            border-top: 1px solid rgba(81, 32, 33, 0.1);
-            color: #888;
-            font-size: 0.8rem;
-        }
-
-        @media (max-width: 768px) {
-            .navbar { padding: 1rem; }
-            
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background: #f3e9da;
-                flex-direction: column;
-                justify-content: center;
-                gap: 2rem;
-                transition: right 0.4s ease;
-            }
-            
-            .nav-links.active { right: 0; }
-            .mobile-menu-btn { display: block; }
-            
-            .mobile-menu-btn.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
-            .mobile-menu-btn.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -7px);
-            }
-            
-            .container { padding-top: 6rem; }
-            .card { padding: 1.5rem; }
-            .info-row { flex-direction: column; gap: 0.5rem; }
-            .contacts { gap: 2rem; }
-        }
-    </style>
+/* Responsive */
+@media(max-width:768px){
+  .container{padding:120px 1.5rem 4rem;}
+  .card{padding:2rem;}
+  .info-row{flex-direction:column; gap:0.4rem;}
+  .contacts{gap:2.5rem;}
+}
+</style>
 </head>
 <body>
 
-<nav class="navbar" id="navbar">
-    <div class="nav-container">
-        <a href="https://alexandraparamonova9.github.io/" class="logo">AP</a>
-        <div class="nav-links" id="navLinks">
-            <a href="https://alexandraparamonova9.github.io/">Главная</a>
-            <a href="#" id="labsLink">Работы</a>
-            <a href="https://alexandraparamonova9.github.io/about/">Обо мне</a>
-        </div>
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
+<nav id="navbar">
+  <a href="https://alexandraparamonova9.github.io/" class="logo">АП</a>
+  <div class="nav-links">
+    <a href="https://alexandraparamonova9.github.io/">Главная</a>
+    <a href="https://alexandraparamonova9.github.io/#labs">Работы</a>
+    <a href="#">Обо мне</a>
+  </div>
 </nav>
 
 <div class="container">
-    <div class="profile" id="profile">
-        <div class="avatar">
-            <img src="https://i.pinimg.com/originals/2c/74/b3/2c74b36ab770ac5d31cdc0946747a0f8.jpg?nii=t" alt="Александра Парамонова">
-        </div>
-        <h1>Александра Парамонова</h1>
-        <div class="subtitle">студентка группы P3122</div>
-    </div>
 
-    <div class="card" id="educationCard">
-        <h2>Образование</h2>
-        <div class="info-row">
-            <div class="info-label">Город:</div>
-            <div class="info-value">Санкт-Петербург</div>
-        </div>
-        <div class="info-row">
-            <div class="info-label">Университет:</div>
-            <div class="info-value">ИТМО</div>
-        </div>
-        <div class="info-row">
-            <div class="info-label">Направление:</div>
-            <div class="info-value">Нейротехнологии и программирование 2025</div>
-        </div>
-        <div class="info-row">
-            <div class="info-label">Курс:</div>
-            <div class="info-value">1</div>
-        </div>
+  <div class="profile">
+    <div class="avatar">
+      <img src="https://i.pinimg.com/originals/2c/74/b3/2c74b36ab770ac5d31cdc0946747a0f8.jpg?nii=t" alt="Александра Парамонова">
     </div>
+    <h1>Александра Парамонова</h1>
+    <div class="subtitle">студентка группы P3122 · ИТМО</div>
+  </div>
 
-    <div class="card" id="contactsCard">
-        <h2>Контакты</h2>
-        <div class="contacts">
-            <div class="contact-item">
-                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                <h4>Email</h4>
-                <a href="mailto:mailParamonova@yandex.ru">mailParamonova@yandex.ru</a>
-            </div>
-            <div class="contact-item">
-                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                </svg>
-                <h4>GitHub</h4>
-                <a href="https://github.com/alexandraparamonova9">@alexandraparamonova9</a>
-            </div>
-            <div class="contact-item">
-                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <line x1="22" y1="2" x2="11" y2="13"/>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                </svg>
-                <h4>Telegram</h4>
-                <a href="https://t.me/aleqxji">@aleqxji</a>
-            </div>
-        </div>
+  <div class="card">
+    <h2>Образование</h2>
+    <div class="info-row">
+      <div class="info-label">Город</div>
+      <div class="info-value">Санкт-Петербург</div>
     </div>
+    <div class="info-row">
+      <div class="info-label">Университет</div>
+      <div class="info-value">ИТМО</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Направление</div>
+      <div class="info-value">Нейротехнологии и программирование</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Год поступления</div>
+      <div class="info-value">2025</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Курс</div>
+      <div class="info-value">1 курс</div>
+    </div>
+  </div>
 
-    <div class="card" id="formCard">
-        <h2>Свяжитесь со мной</h2>
-        <p style="margin-bottom: 1.5rem; color: #666;">Если у вас есть вопросы или предложения, заполните форму ниже — я обязательно отвечу!</p>
-        
-        <form action="https://formsubmit.co/mailParamonova@yandex.ru" method="POST">
-            <div class="form-group">
-                <label for="name">Имя</label>
-                <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="example@email.com" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Сообщение</label>
-                <textarea id="message" name="message" rows="5" placeholder="Ваше сообщение..." required></textarea>
-            </div>
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <button type="submit" class="btn-submit">Отправить сообщение</button>
-        </form>
+  <div class="card">
+    <h2>Контакты</h2>
+    <div class="contacts">
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <h4>Email</h4>
+        <a href="mailto:mailParamonova@yandex.ru">mailParamonova@yandex.ru</a>
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <h4>GitHub</h4>
+        <a href="https://github.com/alexandraparamonova9" target="_blank">@alexandraparamonova9</a>
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        <h4>Telegram</h4>
+        <a href="https://t.me/aleqxji" target="_blank">@aleqxji</a>
+      </div>
     </div>
+  </div>
+
+  <div class="card">
+    <h2>Свяжитесь со мной</h2>
+    <p style="margin-bottom:2rem; color:#666; max-width:680px;">Если у вас есть вопросы по лабораторным работам или предложения сотрудничества — пишите, я обязательно отвечу.</p>
+    
+    <form action="https://formsubmit.co/mailParamonova@yandex.ru" method="POST">
+      <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="example@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Сообщение</label>
+        <textarea id="message" name="message" rows="6" placeholder="Напишите ваше сообщение..." required></textarea>
+      </div>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <button type="submit" class="btn-submit">Отправить сообщение</button>
+    </form>
+  </div>
+
 </div>
 
-<footer class="footer">
-    <p>© 2026 Александра Парамонова</p>
+<footer>
+  <p>© 2026 Александра Парамонова · ИТМО P3122</p>
 </footer>
 
 <script>
-    function navigateTo(url) {
-        window.location.href = url;
-    }
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 80);
+});
 
-    document.getElementById('labsLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        navigateTo('https://alexandraparamonova9.github.io/#labs');
-    });
-
-    const navbar = document.getElementById('navbar');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-        
-        if (currentScroll > lastScroll && currentScroll > 100) {
-            navbar.classList.add('hidden');
-        } else {
-            navbar.classList.remove('hidden');
-        }
-        
-        lastScroll = currentScroll;
-    });
-
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
-
-    mobileBtn?.addEventListener('click', () => {
-        mobileBtn.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    navLinks?.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileBtn?.classList.remove('active');
-            navLinks.classList.remove('active');
-        });
-    });
-
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.profile, .card').forEach(el => observer.observe(el));
+// Mobile menu (если понадобится позже)
 </script>
-
 </body>
 </html>

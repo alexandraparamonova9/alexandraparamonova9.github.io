@@ -1,497 +1,108 @@
-/* ============================================
-   PREMIUM CUSTOM CSS — Apple-inspired 2026
-   Colors: #512021 (bordeaux), #f3e9da (cream), #5d6b4d (olive)
-   ============================================ */
+/* ====================== CUSTOM CSS ДЛЯ ВСЕГО САЙТА ====================== */
 
-/* ---------- GLOBAL RESET & BASE ---------- */
 :root {
-    --bordeaux: #512021;
-    --bordeaux-light: #6b2e2f;
-    --bordeaux-dark: #3a1718;
-    --cream: #f3e9da;
-    --cream-dark: #e8dcc8;
-    --olive: #5d6b4d;
-    --olive-light: #74825e;
-    --olive-dark: #4a5640;
-    --text-dark: #1e1e1e;
-    --text-light: #6b6b6b;
-    --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-bounce: cubic-bezier(0.34, 1.2, 0.64, 1);
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.02);
-    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.04);
-    --shadow-lg: 0 20px 40px rgba(81, 32, 33, 0.08);
-    --shadow-xl: 0 30px 60px rgba(81, 32, 33, 0.12);
+  --b: #512021;
+  --c: #f3e9da;
+  --o: #5d6b4d;
+  --b2: #3a1617;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
+/* Общие улучшения */
 body {
-    background-color: var(--cream);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    color: var(--text-dark);
-    line-height: 1.5;
-    overflow-x: hidden;
+  background-color: var(--c) !important;
+  color: #1c1410;
+  font-family: 'DM Sans', system-ui, sans-serif;
 }
 
-::selection {
-    background: var(--bordeaux);
-    color: var(--cream);
-}
-
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(81, 32, 33, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--bordeaux);
-    border-radius: 100px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--bordeaux-light);
-}
-
-/* ---------- TYPOGRAPHY PREMIUM ---------- */
-h1, h2, h3, .serif {
-    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-}
-
-.gradient-title {
-    background: linear-gradient(135deg, var(--bordeaux) 0%, var(--olive) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-/* ---------- GLASS CARD COMPONENT ---------- */
-.glass-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    border-radius: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: var(--shadow-md);
-    transition: all 0.5s var(--transition-smooth);
-}
-
-.glass-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(93, 107, 77, 0.2);
-}
-
-/* ---------- PROGRESS BARS PREMIUM ---------- */
-.progress-bar {
-    background: rgba(81, 32, 33, 0.08);
-    border-radius: 100px;
-    height: 6px;
-    overflow: hidden;
-}
-
-.progress-fill {
-    height: 100%;
-    border-radius: 100px;
-    transition: width 1.2s var(--transition-bounce);
-    position: relative;
-    overflow: hidden;
-}
-
-.progress-fill::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: shimmer 1.5s infinite;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-/* ---------- APPLE-STYLE DISAPPEARING NAVBAR ---------- */
+/* Улучшение навигации Material */
 .md-header {
-    backdrop-filter: blur(20px) saturate(180%);
-    background: rgba(243, 233, 218, 0.85);
-    transition: transform 0.4s var(--transition-smooth), background 0.3s ease;
+  background-color: rgba(243, 233, 218, 0.95) !important;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 10px rgba(81, 32, 33, 0.08);
 }
 
-.md-header--hidden {
-    transform: translateY(-100%);
+.md-nav__link {
+  color: #2a2a2a !important;
 }
 
-.md-header[data-md-state="shadow"] {
-    box-shadow: 0 1px 0 rgba(81, 32, 33, 0.08);
+.md-nav__link--active {
+  color: var(--b) !important;
+  font-weight: 500;
 }
 
-/* ---------- ANIMATIONS FOR SECTIONS (reveal on scroll) ---------- */
-.reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+/* Красивые блоки в лабораторных */
+.content-box {
+  background: white;
+  padding: 2.4rem 2.8rem;
+  border-radius: 28px;
+  box-shadow: 0 10px 40px rgba(81, 32, 33, 0.08);
+  border: 1px solid rgba(81, 32, 33, 0.08);
+  margin: 2rem 0;
 }
 
-.reveal-on-scroll.revealed {
-    opacity: 1;
-    transform: translateY(0);
+/* Код */
+.code-block {
+  background: #1c1410;
+  color: #d4c4b0;
+  padding: 2.2rem;
+  border-radius: 24px;
+  font-family: 'DM Mono', monospace;
+  overflow-x: auto;
+  line-height: 1.65;
+  margin: 2rem 0;
 }
 
-/* Stagger children animations */
-.reveal-stagger > * {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s var(--transition-smooth), transform 0.6s var(--transition-smooth);
+/* Заголовки */
+h1, h2 {
+  font-family: 'Playfair Display', serif !important;
+  color: var(--b);
 }
 
-.reveal-stagger.revealed > *:nth-child(1) { transition-delay: 0s; }
-.reveal-stagger.revealed > *:nth-child(2) { transition-delay: 0.05s; }
-.reveal-stagger.revealed > *:nth-child(3) { transition-delay: 0.1s; }
-.reveal-stagger.revealed > *:nth-child(4) { transition-delay: 0.15s; }
-.reveal-stagger.revealed > *:nth-child(5) { transition-delay: 0.2s; }
-.reveal-stagger.revealed > *:nth-child(6) { transition-delay: 0.25s; }
-
-.reveal-stagger.revealed > * {
-    opacity: 1;
-    transform: translateY(0);
+h3 {
+  color: var(--o);
+  font-weight: 600;
 }
 
-/* ---------- BUTTONS & LINKS PREMIUM ---------- */
-.md-button {
-    border-radius: 100px;
-    padding: 0.75rem 1.75rem;
-    transition: all 0.4s var(--transition-smooth);
-    font-weight: 500;
-    font-size: 0.9rem;
+/* Ссылки */
+a {
+  color: var(--b);
+  transition: all 0.3s ease;
 }
 
-.md-button--primary {
-    background: var(--bordeaux);
-    border-color: var(--bordeaux);
+a:hover {
+  color: var(--b2);
+  text-decoration: underline;
 }
 
-.md-button--primary:hover {
-    background: var(--bordeaux-dark);
-    transform: scale(1.02);
-    box-shadow: var(--shadow-md);
+/* Кнопка "На главную" */
+.back-btn {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--b);
+  color: white;
+  padding: 14px 34px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(81, 32, 33, 0.3);
+  transition: all 0.4s ease;
 }
 
-.md-button--secondary {
-    border-color: var(--bordeaux);
-    color: var(--bordeaux);
+.back-btn:hover {
+  transform: translateX(-50%) scale(1.05);
+  background: var(--b2);
 }
 
-.md-button--secondary:hover {
-    background: var(--bordeaux);
-    color: var(--cream);
-    transform: scale(1.02);
-}
-
-/* ---------- LAB CARDS PREMIUM ---------- */
-.md-typeset .grid.cards > ul > li,
-.md-typeset .grid.cards > .card {
-    background: white;
-    border-radius: 24px;
-    border: 1px solid rgba(81, 32, 33, 0.06);
-    transition: all 0.5s var(--transition-smooth);
-    overflow: hidden;
-}
-
-.md-typeset .grid.cards > ul > li:hover,
-.md-typeset .grid.cards > .card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: rgba(93, 107, 77, 0.2);
-}
-
-/* ---------- IMAGES WITH PARALLAX ---------- */
-.parallax-image {
-    position: relative;
-    overflow: hidden;
-    border-radius: 24px;
-}
-
-.parallax-image img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.8s var(--transition-smooth);
-    will-change: transform;
-}
-
-.parallax-image:hover img {
-    transform: scale(1.03);
-}
-
-/* ---------- CODE BLOCKS PREMIUM ---------- */
-.highlight,
-.md-typeset code {
-    border-radius: 16px;
-    background: #1a1a1a;
-    font-family: 'JetBrains Mono', 'SF Mono', monospace;
-    font-size: 0.85rem;
-}
-
-.md-typeset pre {
-    border-radius: 20px;
-    box-shadow: var(--shadow-md);
-}
-
-/* ---------- TABLES PREMIUM ---------- */
-.md-typeset table:not([class]) {
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-}
-
-.md-typeset table:not([class]) th {
-    background: var(--bordeaux);
-    color: var(--cream);
-    font-weight: 500;
-}
-
-.md-typeset table:not([class]) td {
-    border-bottom-color: rgba(81, 32, 33, 0.05);
-}
-
-/* ---------- ADMONITIONS PREMIUM ---------- */
-.md-typeset .admonition,
-.md-typeset details {
-    border-radius: 20px;
-    border-left-color: var(--olive);
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(4px);
-}
-
-.md-typeset .admonition-title {
-    background: rgba(93, 107, 77, 0.1);
-    border-radius: 20px 20px 0 0;
-}
-
-/* ---------- FOOTER ---------- */
-.md-footer {
-    background: transparent;
-    border-top: 1px solid rgba(81, 32, 33, 0.08);
-    color: var(--text-light);
-}
-
-.md-footer-meta {
-    background: transparent;
-}
-
-/* ---------- SOCIAL LINKS ANIMATION ---------- */
-.md-social__link {
-    transition: all 0.3s var(--transition-smooth);
-}
-
-.md-social__link:hover {
-    transform: translateY(-2px);
-    color: var(--olive) !important;
-}
-
-/* ---------- CUSTOM CURSOR (premium touch) ---------- */
-@media (min-width: 1024px) {
-    .custom-cursor {
-        width: 8px;
-        height: 8px;
-        background: var(--bordeaux);
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease;
-        opacity: 0;
-    }
-
-    .custom-cursor.active {
-        opacity: 0.6;
-    }
-
-    .custom-cursor.hover {
-        width: 32px;
-        height: 32px;
-        background: rgba(81, 32, 33, 0.15);
-        backdrop-filter: blur(4px);
-    }
-
-    a, button, .md-button, .card, .lab-card {
-        cursor: none;
-    }
-}
-
-/* ---------- SMOOTH SCROLL BEHAVIOR ---------- */
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
-}
-
-/* ---------- RESPONSIVE TOUCHES ---------- */
+/* Адаптивность */
 @media (max-width: 768px) {
-    .glass-card {
-        backdrop-filter: none;
-    }
+  .content-box {
+    padding: 1.8rem 1.6rem;
+  }
 
-    .md-typeset .grid.cards > ul > li:hover,
-    .md-typeset .grid.cards > .card:hover {
-        transform: translateY(-4px);
-    }
-
-    .custom-cursor {
-        display: none;
-    }
-}
-
-/* ---------- LOADING ANIMATION ---------- */
-.page-loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--cream);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.page-loader.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.loader {
-    width: 40px;
-    height: 40px;
-    border: 2px solid rgba(81, 32, 33, 0.1);
-    border-top-color: var(--bordeaux);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* ---------- HERO SECTION GLOW EFFECT ---------- */
-.hero-glow {
-    position: relative;
-}
-
-.hero-glow::before {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 60%;
-    background: radial-gradient(ellipse at center, rgba(93, 107, 77, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* ---------- STATS COUNTERS ---------- */
-.stat-number {
-    font-size: 3rem;
-    font-weight: 600;
-    color: var(--bordeaux);
-    font-family: 'Cormorant Garamond', serif;
-    line-height: 1;
-}
-
-.stat-label {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--olive);
-}
-
-/* ---------- MICRO-INTERACTIONS ---------- */
-.hover-lift {
-    transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-}
-
-.hover-scale {
-    transition: transform 0.4s var(--transition-smooth);
-}
-
-.hover-scale:hover {
-    transform: scale(1.02);
-}
-
-/* ---------- TYPOGRAPHY REFINEMENTS ---------- */
-.md-typeset {
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.md-typeset h1 {
-    color: var(--bordeaux);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.md-typeset h2 {
-    color: var(--bordeaux);
-    font-size: 1.8rem;
-    margin-top: 2rem;
-}
-
-.md-typeset a {
-    color: var(--olive);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.md-typeset a:hover {
-    color: var(--bordeaux);
-    text-decoration: underline;
-}
-
-/* ---------- FOOTNOTE STYLES ---------- */
-.md-typeset .footnote {
-    color: var(--text-light);
-    font-size: 0.8rem;
-}
-
-/* ---------- PRINT STYLES ---------- */
-@media print {
-    .md-header,
-    .md-footer,
-    .md-sidebar,
-    .custom-cursor,
-    .page-loader {
-        display: none;
-    }
-
-    body {
-        background: white;
-        color: black;
-    }
-
-    .glass-card {
-        background: white;
-        box-shadow: none;
-        border: 1px solid #ddd;
-    }
+  .full-section {
+    padding: 140px 5% 80px;
+  }
 }

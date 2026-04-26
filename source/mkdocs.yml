@@ -1,23 +1,20 @@
-# Настройки сайта
+# mkdocs.yml
 site_name: Александра Парамонова · P3122
-site_description: Портфолио лабораторных работ по веб-разработке и машинному обучению
+site_description: Портфолио лабораторных работ
 site_author: Александра Парамонова
 site_url: https://alexandraparamonova9.github.io
 
-# Репозиторий
-repo_name: alexandraparamonova9/alexandraparamonova9.github.io
+repo_name: alexandraparamonova9.github.io
 repo_url: https://github.com/alexandraparamonova9/alexandraparamonova9.github.io
 
-# Тема Material — только светлая
 theme:
   name: material
   language: ru
   icon:
     logo: material/code-brackets
     repo: fontawesome/brands/github
-
-  # Только светлая тема
   palette:
+    # Только светлая тема
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: deep purple
@@ -25,13 +22,9 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Светлая тема
-
-  # Шрифты
   font:
     text: Inter
-    code: JetBrains Mono
-
-  # Фичи
+    code: DM Mono
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -44,37 +37,25 @@ theme:
     - content.code.annotate
     - content.code.copy
     - content.tabs.link
-    - announce.dismiss
 
-# Дополнительные стили
 extra_css:
-  - https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap
-  - https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap
   - custom.css
+  - https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap
+  - https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap
 
-extra_javascript:
-  - https://unpkg.com/feather-icons
-
-# Расширения Markdown
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
-      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - attr_list
   - md_in_html
   - toc:
@@ -84,9 +65,7 @@ markdown_extensions:
   - tables
   - pymdownx.tasklist:
       custom_checkbox: true
-      clickable_checkbox: true
 
-# Навигация
 nav:
   - Главная: index.md
   - Обо мне: about.md
@@ -100,17 +79,14 @@ nav:
       - Лабораторная работа №7: labs/lab7.md
       - Лабораторная работа №8: labs/lab8.md
 
-# Плагины
 plugins:
   - search:
       lang: ru
   - git-revision-date-localized:
       enable_creation_date: true
-      type: date
   - minify:
       minify_html: true
 
-# Дополнительные настройки
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -119,8 +95,6 @@ extra:
       link: https://t.me/aleqxji
     - icon: fontawesome/solid/envelope
       link: mailto:mailParamonova@yandex.ru
-
   generator: false
 
-# Копирайт
 copyright: Copyright &copy; 2026 Александра Парамонова
